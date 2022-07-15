@@ -25,9 +25,9 @@ services:
       - 3000:3000
     # Configura as variáveis de ambiente dentro do container
     environment:
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-      MYSQL_HOST: db
+      DB_USER: root
+      DB_PASSWORD: password
+      DB_HOST: db
 
   # Serviço que irá rodar o banco de dados
   db:
@@ -38,7 +38,7 @@ services:
     # na notação porta_de_fora:porta_de_dentro
     ports:
       # Expõe a porta padrão do banco de dados
-      - 3306:3306
+      - 3310:3306
       - 33060:33060
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -47,5 +47,3 @@ services:
 networks:
   # Rede padrão, criada automaticamente
   default:
-    # Dá um nome específico à rede padrão
-    name: xp_investimentos_net
