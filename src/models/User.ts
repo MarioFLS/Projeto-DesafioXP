@@ -1,23 +1,22 @@
 import { Model, INTEGER, STRING, BOOLEAN, DATE } from 'sequelize';
 
 import db from '.';
+import Wallet from './Wallet';
 
 class User extends Model {
-  id!: number;
-  name!: string;
-  email!: string;
-  password!: string;
-  active!: boolean;
-  subscription_date!: Date;
+  id?: number;
+  name?: string;
+  email?:string;
+  password?:string;
+  active?:boolean;
+  subscriptionDate?: Date;
 }
 
 User.init(
   {
     id:  {
       type: INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
     name: {
       type: STRING(100),
@@ -47,7 +46,8 @@ User.init(
     timestamps: false,
   }
 );
+Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_Id',  });
+User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_Id' });
 
-// User.hasOne(User, { foreignKey: 'id', as: 'userId' });
 
 export default User;
