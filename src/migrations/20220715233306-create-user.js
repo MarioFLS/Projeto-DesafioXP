@@ -8,13 +8,13 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
       },
       email: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
       },
       password: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
       },
       active: {
         type: Sequelize.BOOLEAN,
