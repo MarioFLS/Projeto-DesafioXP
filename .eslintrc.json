@@ -32,12 +32,6 @@
     "varsIgnorePattern": "^_",
     "caughtErrorsIgnorePattern": "^_"
   }],
-  "import/no-unresolved": [2, { "caseSensitiveStrict": true, "commonjs": "false", "amd": true }],
-  "import/named": 2,
-  "import/namespace": 2,
-  "import/default": 2,
-  "import/export": 2
-  },
   "import/extensions": [
     "error",
     "ignorePackages",
@@ -45,5 +39,11 @@
       "js": "never",
       "ts": "never"
     }
-  ]
+  ],
+  "import/no-unresolved": [2, { "caseSensitiveStrict": true, "commonjs": false, "amd": true }],
+  "import/named": 2,
+  "import/namespace": 2,
+  "import/default": 2,
+  "import/export": 2
+  }
 }
