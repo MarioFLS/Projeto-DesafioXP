@@ -8,7 +8,4 @@ tsconfig.json
 # Arquivos feito pela biblioteca do Typescript
 dist
 
-# Arquivos feito pela biblioteca do Sequelize
-index.ts
-models
-migrations
+
