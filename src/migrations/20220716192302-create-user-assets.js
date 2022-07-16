@@ -5,8 +5,8 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
         field: 'user_id',
+        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
@@ -25,14 +25,11 @@ module.exports = {
           key: 'id',
         },
       },
-      assetName: {
-        type: Sequelize.STRING,
-        field: 'asset_name',
-      },
       purchasePrice: {
         type: Sequelize.DECIMAL(10, 2),
         field: 'purchase_price',
       },
+      quantity: { type: Sequelize.DECIMAL(10, 2) },
     });
   },
   async down(queryInterface, _Sequelize) {

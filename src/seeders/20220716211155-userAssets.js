@@ -5,26 +5,26 @@ module.exports = {
       [{
         user_id: 1,
         asset_id: 1,
-        asset_name: 'AAPL - Apple',
         purchase_price: 85.69,
+        quantity: 2,
       },
       {
         user_id: 1,
         asset_id: 2,
-        asset_name: 'MGLU3 - Magazine Luiza',
         purchase_price: 2.22,
+        quantity: 2,
       },
       {
         user_id: 4,
         asset_id: 4,
-        asset_name: 'PETR4 - Petrobras',
         purchase_price: 28.96,
+        quantity: 5,
       },
       {
         user_id: 3,
         asset_id: 2,
-        asset_name: 'MGLU3 - Magazine Luiza',
-        purchase_price: 3,
+        purchase_price: 3.00,
+        quantity: 7,
       },
       ],
 
