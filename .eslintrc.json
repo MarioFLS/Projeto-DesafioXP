@@ -4,7 +4,11 @@
     "node": true
   },
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "plugin:import/typescript",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,12 +16,36 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "import"
   ],
+  "ignorePatterns": [],
   "rules": {
     "max-len": ["error", { "code": 90, "ignoreUrls": true, "ignoreComments": true }],
     "no-unreachable": "error",
     "no-else-return": "error",
-    "consistent-return": ["off", { "treatUndefinedAsUnspecified": true }]
+    "consistent-return": ["off", { "treatUndefinedAsUnspecified": true }],
+    "no-unused-vars": "off",
+    // Comandos tirandos do site do npm do Eslint
+    "@typescript-eslint/no-unused-vars": ["warn",
+  { 
+    "argsIgnorePattern": "^_",
+    "varsIgnorePattern": "^_",
+    "caughtErrorsIgnorePattern": "^_"
+  }],
+  
+  "import/no-unresolved": [2, { "caseSensitiveStrict": true, "commonjs": false, "amd": true }],
+  "import/named": 2,
+  "import/namespace": 2,
+  "import/default": 2,
+  "import/export": 2,
+  "import/extensions": [
+    "error",
+    "ignorePackages",
+    {
+      "js": "never",
+      "ts": "never"
+    }
+  ]
   }
 }
