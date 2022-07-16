@@ -19,7 +19,7 @@
     "@typescript-eslint",
     "import"
   ],
-  "ignorePatterns": ["models"],
+  "ignorePatterns": [],
   "rules": {
     "max-len": ["error", { "code": 90, "ignoreUrls": true, "ignoreComments": true }],
     "no-unreachable": "error",
