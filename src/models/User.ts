@@ -1,18 +1,14 @@
-import { Model, INTEGER, STRING, BOOLEAN, DATE } from 'sequelize';
+import {
+  Model, INTEGER, STRING, BOOLEAN, DATE,
+} from 'sequelize';
 
 import db from '.';
 import Asset from './Asset';
-import userAssets from './UserAssets';
+import UserAssets from './UserAssets';
+import UserHistory from './UserHistory';
 import Wallet from './Wallet';
 
-class User extends Model {
-  id!: number;
-  name!: string;
-  email!: string;
-  password!: string;
-  active!: boolean;
-  subscriptionDate!: Date;
-}
+class User extends Model {}
 
 User.init(
   {
@@ -46,14 +42,20 @@ User.init(
     sequelize: db,
     modelName: 'User',
     timestamps: false,
-  }
+  },
 );
 
 Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_id' });
 User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_id' });
 
-User.hasMany(userAssets, { as: 'userAssets', foreignKey: 'user_id' });
-userAssets.belongsToMany(User, { as: 'user', foreignKey: 'user_Id', through: Asset, otherKey: 'asset_id'
+User.hasMany(UserAssets, { as: 'userAssets', foreignKey: 'user_id' });
+UserAssets.belongsToMany(User, {
+  as: 'user', foreignKey: 'user_Id', through: Asset, otherKey: 'asset_id',
+});
+
+User.hasMany(UserHistory, { as: 'userHistory', foreignKey: 'user_id' });
+UserHistory.belongsToMany(User, {
+  as: 'user', foreignKey: 'user_Id', through: UserHistory, otherKey: 'asset_id',
 });
 
 export default User;

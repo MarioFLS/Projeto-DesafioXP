@@ -2,10 +2,7 @@ import { Model, INTEGER, DECIMAL } from 'sequelize';
 
 import db from '.';
 
-class Wallet extends Model {
-  userId!:number;
-  balance!:number;
-}
+class Wallet extends Model {}
 Wallet.init({
   userId: {
     type: INTEGER,
