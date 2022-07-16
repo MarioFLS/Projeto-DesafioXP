@@ -18,6 +18,14 @@
     "max-len": ["error", { "code": 90, "ignoreUrls": true, "ignoreComments": true }],
     "no-unreachable": "error",
     "no-else-return": "error",
-    "consistent-return": ["off", { "treatUndefinedAsUnspecified": true }]
+    "consistent-return": ["off", { "treatUndefinedAsUnspecified": true }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", // or error
+  { 
+    "argsIgnorePattern": "^_",
+    "varsIgnorePattern": "^_",
+    "caughtErrorsIgnorePattern": "^_"
+  }
+]
   }
 }

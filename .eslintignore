@@ -1,9 +1,14 @@
+# Arquivos De Build
 node_modules
 .sequelizerc
-package-lock.json
-package.json
 tsconfig.json
 .eslintrc.json
 .github
-build
+
+# Arquivos feito pela biblioteca do Typescript
+dist
+
+# Arquivos feito pela biblioteca do Sequelize
 index.ts
+models
+migrations
