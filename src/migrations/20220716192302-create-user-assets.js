@@ -1,32 +1,29 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('User_Assets', {
-      id: {
+      userId: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
+        field: 'user_id',
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
           key: 'id',
         },
-        field: 'user_id',
       },
       assetId: {
         allowNull: false,
+        primaryKey: true,
         type: Sequelize.INTEGER,
+        field: 'asset_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: {
           model: 'Assets',
           key: 'id',
         },
-        field: 'asset_id',
       },
       assetName: {
         type: Sequelize.STRING,
