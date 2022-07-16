@@ -19,8 +19,9 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
-      subscription_date: {
+      subscriptionDate: {
         type: Sequelize.DATE,
+        field: 'subscription_date',
         defaultValue: Sequelize.fn('now'),
       },
     });

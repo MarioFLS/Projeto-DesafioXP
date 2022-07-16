@@ -1,8 +1,6 @@
-import { DOUBLE } from 'sequelize';
-import { STRING, INTEGER, DECIMAL } from 'sequelize';
+import { Model, STRING, INTEGER, DECIMAL } from 'sequelize';
 import db from '.';
-
-const { Model } = require('sequelize');
+import userAssets from './UserAssets';
 
 class Asset extends Model {
   id?: string;
@@ -12,10 +10,10 @@ class Asset extends Model {
 }
 Asset.init(
   {
-    id: { type: INTEGER, primaryKey: true, field: 'user_id' },
+    id: { type: INTEGER, primaryKey: true },
     name: { type: STRING, allowNull: false },
     amount: { type: INTEGER, allowNull: false },
-    price: { type: DOUBLE, allowNull: false },
+    price: { type: DECIMAL, allowNull: false },
   },
   {
     sequelize: db,
@@ -23,5 +21,8 @@ Asset.init(
     timestamps: false,
   },
 );
+
+userAssets.belongsToMany(Asset, { as: 'assets', foreignKey: 'asset_id', through: userAssets, otherKey: 'user_id' });
+Asset.hasMany(userAssets, { as: 'userAssets', foreignKey: 'asset_id' });
 
 export default Asset;

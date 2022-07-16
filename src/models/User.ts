@@ -1,16 +1,16 @@
-import {
-  Model, INTEGER, STRING, BOOLEAN, DATE,
-} from 'sequelize';
+import { Model, INTEGER, STRING, BOOLEAN, DATE } from 'sequelize';
 
 import db from '.';
+import Asset from './Asset';
+import userAssets from './UserAssets';
 import Wallet from './Wallet';
 
 class User extends Model {
   id!: number;
   name!: string;
-  email!:string;
-  password!:string;
-  active!:boolean;
+  email!: string;
+  password!: string;
+  active!: boolean;
   subscriptionDate!: Date;
 }
 
@@ -46,9 +46,14 @@ User.init(
     sequelize: db,
     modelName: 'User',
     timestamps: false,
-  },
+  }
 );
-Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_Id' });
-User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_Id' });
+
+Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_id' });
+User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_id' });
+
+User.hasMany(userAssets, { as: 'userAssets', foreignKey: 'user_id' });
+userAssets.belongsToMany(User, { as: 'user', foreignKey: 'user_Id', through: Asset, otherKey: 'asset_id'
+});
 
 export default User;
