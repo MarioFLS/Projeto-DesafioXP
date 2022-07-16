@@ -6,7 +6,7 @@ const config: Options = {
   password: process.env.DB_PASSWORD,
   database: 'investimentosApi',
   host: process.env.DB_HOST || 'localhost',
-  port: 3310,
+  port: 3306,
   dialect: 'mysql',
 };
 
