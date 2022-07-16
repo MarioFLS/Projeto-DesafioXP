@@ -1,4 +1,6 @@
-import { Model, STRING, INTEGER, DECIMAL } from 'sequelize';
+import {
+  Model, INTEGER, DECIMAL,
+} from 'sequelize';
 import db from '.';
 
 class userAssets extends Model {}
@@ -13,7 +15,7 @@ userAssets.init(
     sequelize: db,
     modelName: 'User_Assets',
     timestamps: false,
-  }
+  },
 );
 
 export default userAssets;
