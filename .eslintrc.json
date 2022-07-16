@@ -14,6 +14,7 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": ["models", "index.js"],
   "rules": {
     "max-len": ["error", { "code": 90, "ignoreUrls": true, "ignoreComments": true }],
     "no-unreachable": "error",
