@@ -7,7 +7,7 @@ import TokenValidate from '../middleware/validate.token';
 const clienteRoute = express.Router();
 
 clienteRoute.post('/conta/login', UserLogin.login);
-clienteRoute.get('/conta/:id', UserBalance.getBalance);
+clienteRoute.get('/conta/:id', TokenValidate, UserBalance.getBalance);
 clienteRoute.put('/conta/deposit/:id', TokenValidate, UserDeposit.setDeposit);
 
 export default clienteRoute;
