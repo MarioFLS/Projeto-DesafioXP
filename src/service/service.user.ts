@@ -1,3 +1,4 @@
+import { StatusCodes } from 'http-status-codes';
 import { IError } from '../interface/interface.error';
 import { IBalance, IUserBalance } from '../interface/interface.user';
 import User from '../models/User';
@@ -14,7 +15,12 @@ class UserModel {
       const { name, id, wallet: { balance } } = result?.toJSON() as IBalance;
       return { id, name, balance };
     }
-    return { error: { status: 400, message: 'Esse usuário não existe! Tente Outro' } };
+    return {
+      error: {
+        code: StatusCodes.NOT_FOUND,
+        message: 'Esse usuário não existe! Tente Outro',
+      },
+    };
   }
 }
 

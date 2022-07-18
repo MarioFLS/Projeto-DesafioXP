@@ -1,5 +1,4 @@
 import expressLib from 'express';
-import 'express-async-errors';
 
 const express = expressLib();
 
