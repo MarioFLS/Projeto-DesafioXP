@@ -1,10 +1,10 @@
 import { StatusCodes } from 'http-status-codes';
-import { IError } from '../interface/interface.error';
-import { IBalance, IUserBalance } from '../interface/interface.user';
-import User from '../models/User';
-import Wallet from '../models/Wallet';
+import { IError } from '../../interface/interface.error';
+import { IBalance, IUserBalance } from '../../interface/interface.user';
+import User from '../../models/User';
+import Wallet from '../../models/Wallet';
 
-class UserModel {
+class GetBalance {
   static async getBalance(param:number): Promise<IUserBalance | IError> {
     const result = await User.findOne({
       where: { id: param },
@@ -24,4 +24,4 @@ class UserModel {
   }
 }
 
-export default UserModel;
+export default GetBalance;

@@ -1,5 +1,5 @@
 import express from 'express';
-import controllersUser from '../controllers/controllers.user';
+import controllersUser from '../controllers/controllers.get.balance';
 
 const clienteRoute = express.Router();
 
