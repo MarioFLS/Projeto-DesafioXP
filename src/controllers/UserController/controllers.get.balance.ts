@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { IError } from '../interface/interface.error';
-import GetBalance from '../service/UserService/get.balance';
+import { IError } from '../../interface/interface.error';
+import GetBalance from '../../service/UserService/get.balance';
 
 class UserBalance {
   static async getBalance(req:Request, res:Response, next:NextFunction)
