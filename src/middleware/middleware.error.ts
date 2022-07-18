@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { IError } from '../interface/interface.error';
 
 class Error {
-  static error(err: IError, _req: Request, res: Response, _next: NextFunction) {
+  static error(err: IError, _req: Request, res: Response, _next: NextFunction): Response {
     const { error } = err;
     if (error) {
       return res.status(error.code).json({ message: error.message });
