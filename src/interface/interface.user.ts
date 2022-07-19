@@ -12,6 +12,7 @@ export interface INewUser {
   name:string,
   email:string,
   password:string,
+  saldo:number
 }
 
 export type Usertoken = {
