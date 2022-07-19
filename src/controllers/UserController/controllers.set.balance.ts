@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
 import { Usertoken } from '../../interface/interface.user';
@@ -9,9 +9,9 @@ class UserDeposit {
     { id, name }:Usertoken,
     req:Request,
     res:Response,
-    next:Function,
+    next:NextFunction,
   )
-  : Promise<Response> {
+  : Promise<Response | void> {
     const type = req.url.endsWith('deposito') ? 'deposit' : 'withdraw';
     const { valor } = req.body;
 
