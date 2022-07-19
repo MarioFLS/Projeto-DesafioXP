@@ -7,7 +7,7 @@ const secret = process.env.SECRET_PASSWORD as string;
 
 class TokenValidate {
   static tokenValidate(req: Request, res: Response, next: NextFunction): Response | void {
-    const { authorization } = req.headers as { authorization: string };
+    const { authorization } = req.headers;
     if (!authorization) {
       return res
         .status(StatusCodes.UNAUTHORIZED)

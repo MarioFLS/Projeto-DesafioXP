@@ -20,7 +20,7 @@ class ValidateBalance {
 
     const { error } = valorValidation.validate({ valor });
     if (error) {
-      return res.status(StatusCodes.BAD_REQUEST)
+      return res.status(StatusCodes.UNAUTHORIZED)
         .json({ message: error.details[0].message });
     }
     return next(token);
