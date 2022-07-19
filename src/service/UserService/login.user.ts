@@ -16,8 +16,8 @@ class UserLogin {
         },
       };
     }
-    const { id } = result.toJSON();
-    const payload = { id, admin: false };
+    const { id, name } = result.toJSON();
+    const payload = { id, name, admin: false };
     const token = jwt.sign(payload, secret, {
       expiresIn: '1h',
       algorithm: 'HS256',
