@@ -1,13 +1,11 @@
-export interface IBalance {
-  name:string,
+export interface IUser {
   id:number,
-  wallet:{balance:number}
+  name:string,
+  balance?:number
 }
 
-export interface IUserBalance {
-  id:number,
-  name:string,
-  balance:number
+export interface IBalance extends IUser {
+  wallet:{balance:number}
 }
 
 export type token = {

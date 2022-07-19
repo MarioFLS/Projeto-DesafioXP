@@ -1,10 +1,10 @@
-import { IUserBalance } from '../interface/interface.user';
+import { IUser } from '../interface/interface.user';
 import SearchUserWallet from './search.database.user';
 
-class BalanceSum {
+class Balance {
   private _id:number;
   private _valor:number;
-  private _wallet: Promise<IUserBalance>;
+  private _wallet: Promise<IUser>;
 
   constructor(id: number, valor: number) {
     this._id = id;
@@ -19,4 +19,4 @@ class BalanceSum {
   }
 }
 
-export default BalanceSum;
+export default Balance;

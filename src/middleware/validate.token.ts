@@ -21,7 +21,7 @@ class TokenValidate {
     } catch (error) {
       return res.status(StatusCodes.UNAUTHORIZED).json({
         message:
-          'Você está tentando usar um token inválido',
+          'Você está tentando usar um token inválido ou expirado. Tente novamente',
       });
     }
   }
