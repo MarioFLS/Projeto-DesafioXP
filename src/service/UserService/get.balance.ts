@@ -5,14 +5,14 @@ import User from '../../models/User';
 import Wallet from '../../models/Wallet';
 
 class GetBalance {
-  static async getBalance(param:number): Promise<IUserBalance | IError> {
+  static async getBalance(param:number, name:string): Promise<IUserBalance | IError> {
     const result = await User.findOne({
       where: { id: param },
       attributes: ['name', 'id'],
       include: [{ model: Wallet, as: 'wallet', attributes: ['balance'] }],
     });
     if (result) {
-      const { name, id, wallet: { balance } } = result?.toJSON() as IBalance;
+      const { id, wallet: { balance } } = result?.toJSON() as IBalance;
       return { id, name, balance };
     }
     return {

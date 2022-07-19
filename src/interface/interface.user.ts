@@ -9,3 +9,8 @@ export interface IUserBalance {
   name:string,
   balance:number
 }
+
+export type token = {
+  name:string;
+  id:number;
+}
