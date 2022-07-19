@@ -1,11 +1,16 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
-import { token } from '../../interface/interface.user';
+import { Usertoken } from '../../interface/interface.user';
 import SetBalance from '../../service/UserService/set.balance';
 
 class UserDeposit {
-  static async setBalance({ id, name }:token, req:Request, res:Response, next:Function)
+  static async setBalance(
+    { id, name }:Usertoken,
+    req:Request,
+    res:Response,
+    next:Function,
+  )
   : Promise<Response> {
     const type = req.url.endsWith('deposito') ? 'deposit' : 'withdraw';
     const { valor } = req.body;

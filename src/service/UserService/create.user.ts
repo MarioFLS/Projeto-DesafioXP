@@ -9,10 +9,11 @@ class CreateUser {
     const { name: userName, email, password } = user;
     const secret = process.env.SECRET_PASSWORD as string;
 
-    const result = await User.create({
+    const create = await User.create({
       name: userName, email, password, active: true, subscriptionDate: Date.now(),
     });
-    const { id, name } = result.toJSON();
+    const id = create.null;
+    const { name } = create.toJSON();
 
     const payload = { id, name, admin: false };
 

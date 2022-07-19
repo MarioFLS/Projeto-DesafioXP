@@ -1,14 +1,17 @@
 import express from 'express';
-import CreateClient from '../controllers/UserController/controllers.create.user';
+import CreateClient from '../controllers/UserController/controllers.create.client';
 import UserBalance from '../controllers/UserController/controllers.get.balance';
-import UserLogin from '../controllers/UserController/controllers.login.user';
 import UserDeposit from '../controllers/UserController/controllers.set.balance';
 import TokenValidate from '../middleware/validate.token';
+import ClientLogin from '../controllers/UserController/controllers.login.client';
+import ClientUpdate from '../controllers/UserController/controllers.update.client';
 
 const clienteRoute = express.Router();
 
 clienteRoute.post('/create', CreateClient.create);
-clienteRoute.post('/login', UserLogin.login);
+clienteRoute.post('/login', ClientLogin.login);
+clienteRoute.put('/up', TokenValidate, ClientUpdate.update);
+
 clienteRoute.get('/conta', TokenValidate, UserBalance.getBalance);
 clienteRoute.post('/conta/deposito', TokenValidate, UserDeposit.setBalance);
 clienteRoute.post('/conta/saque', TokenValidate, UserDeposit.setBalance);
