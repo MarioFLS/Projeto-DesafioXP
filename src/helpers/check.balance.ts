@@ -16,19 +16,20 @@ class Balance {
 
   async deposit(): Promise<number> {
     const { balance } = await this._wallet;
-    return Number(balance) + this._valor;
+    const result = Number(balance) + this._valor;
+    return Number(result.toFixed(2));
   }
 
   async withdraw(): Promise<number | IError> {
     const { balance } = await this._wallet;
-    const subtraction = balance - this._valor;
-    if (subtraction < 0) {
-      return subtraction;
+    const subtraction = Number(balance) - this._valor;
+    if (subtraction > 0) {
+      return Number(subtraction.toFixed(2));
     }
-    return {
+    throw {
       error: {
         code: StatusCodes.NOT_ACCEPTABLE,
-        message: 'Seu email ou senha estão incorretos.',
+        message: 'Você não tem dinheiro o suficiente',
       },
     };
   }
