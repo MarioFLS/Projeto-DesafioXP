@@ -14,7 +14,7 @@ export interface INewUser {
   password:string,
 }
 
-export type token = {
+export type Usertoken = {
   name:string;
   id:number;
 }

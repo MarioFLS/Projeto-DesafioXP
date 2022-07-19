@@ -8,7 +8,9 @@ import UserAssets from './UserAssets';
 import UserHistory from './UserHistory';
 import Wallet from './Wallet';
 
-class User extends Model {}
+class User extends Model {
+  null?: number;
+}
 
 User.init(
   {
