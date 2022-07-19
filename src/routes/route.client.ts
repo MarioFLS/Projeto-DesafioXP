@@ -13,7 +13,7 @@ import ValidateUpdate from '../middleware/validate.update.client';
 const clienteRoute = express.Router();
 
 clienteRoute.post('/create', validateNewUser, CreateClient.create);
-clienteRoute.put('/update', TokenValidate, /* ValidateUpdate, */ ClientUpdate.update);
+clienteRoute.put('/update', TokenValidate, ValidateUpdate, ClientUpdate.update);
 clienteRoute.post('/login', validateLogin, ClientLogin.login);
 
 clienteRoute.get('/conta', TokenValidate, UserBalance.getBalance);
