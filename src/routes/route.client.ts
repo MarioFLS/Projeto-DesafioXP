@@ -10,9 +10,11 @@ import validateLogin from '../middleware/validate.login';
 import validateNewUser from '../middleware/validate.new.user';
 import ValidateUpdate from '../middleware/validate.update.client';
 import ClientAssets from '../controllers/ClientController/controllers.get.assets';
+import DeleteClient from '../controllers/ClientController/controllers.delete.client';
 
 const clienteRoute = express.Router();
 
+clienteRoute.delete('/delete', TokenValidate, DeleteClient.delete);
 clienteRoute.post('/create', validateNewUser, CreateClient.create);
 clienteRoute.put('/update', TokenValidate, ValidateUpdate, ClientUpdate.update);
 clienteRoute.post('/login', validateLogin, ClientLogin.login);

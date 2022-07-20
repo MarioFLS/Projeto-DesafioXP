@@ -18,4 +18,5 @@ export interface INewUser {
 export type Usertoken = {
   name:string;
   id:number;
+  email:string;
 }

@@ -10,8 +10,7 @@ class TokenValidate {
   static async tokenValidate(req: Request, res: Response, next: NextFunction):
   Promise<Response | void> {
     const { authorization } = req.headers;
-    const message = 'Você está tentando usar um token inválido ou expirado. '
-      + 'Tente novamente';
+    const message = 'Esse token está inválido, não pertece a nenhum usuario';
 
     if (!authorization) {
       return res
@@ -31,7 +30,7 @@ class TokenValidate {
 
       return next(token);
     } catch (error) {
-      return res.status(StatusCodes.UNAUTHORIZED).json({ message });
+      return res.status(StatusCodes.BAD_REQUEST).json({ message });
     }
   }
 }
