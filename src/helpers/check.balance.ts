@@ -23,9 +23,7 @@ class HelpBalance {
   async withdraw(): Promise<number | IError> {
     const { balance } = await this._wallet;
     const subtraction = Number(balance) - this._valor;
-    if (subtraction > 0) {
-      return Number(subtraction.toFixed(2));
-    }
+    if (subtraction > 0) { return Number(subtraction.toFixed(2)); }
     throw {
       error: {
         code: StatusCodes.NOT_ACCEPTABLE,
