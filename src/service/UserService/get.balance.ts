@@ -1,4 +1,3 @@
-import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
 import { IBalance, IUser } from '../../interface/interface.user';
 import User from '../../models/User';
