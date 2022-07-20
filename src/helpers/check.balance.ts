@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { IUser } from '../interface/interface.user';
-import SearchUserWallet from './search.database.user';
+import SearchUserWallet from './search.database.wallet';
 import { IError } from '../interface/interface.error';
 
 class Balance {
