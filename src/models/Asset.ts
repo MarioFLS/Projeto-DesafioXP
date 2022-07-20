@@ -23,6 +23,7 @@ Asset.init(
 UserAssets.belongsToMany(Asset, {
   as: 'assets', foreignKey: 'asset_id', through: UserAssets, otherKey: 'user_id',
 });
+
 Asset.hasMany(UserAssets, { as: 'userAssets', foreignKey: 'asset_id' });
 
 UserHistory.belongsToMany(Asset, {

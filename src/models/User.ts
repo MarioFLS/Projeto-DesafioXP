@@ -51,8 +51,8 @@ Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_id' });
 User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_id' });
 
 User.hasMany(UserAssets, { as: 'Assets', foreignKey: 'user_id' });
-UserAssets.belongsToMany(User, {
-  as: 'user', foreignKey: 'user_Id', through: Asset, otherKey: 'asset_id',
+UserAssets.belongsTo(User, {
+  as: 'user', foreignKey: 'user_Id',
 });
 
 User.hasMany(UserHistory, { as: 'History', foreignKey: 'user_id' });
