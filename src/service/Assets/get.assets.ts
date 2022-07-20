@@ -27,8 +27,26 @@ class GetAssets {
   async buyAsset(id:number, quantityPurchased:number): Promise<IAsset | IError> {
     const asset = await this.assetId(id);
     const { amount } = asset as IAsset;
+    if (amount === 0) {
+      throw {
+        error: {
+          code: StatusCodes.NOT_ACCEPTABLE,
+          message: 'Não possuimos mais esse ativo no estoque',
+        },
+      };
+    }
     const result = Number(amount - quantityPurchased);
-    await this._assets.update({ amount: result }, { where: { id } });
+    if (result <= 0) {
+      throw {
+        error: {
+          code: StatusCodes.NOT_ACCEPTABLE,
+          message: 'Não possuimos essa quantidade de ativos no estoque',
+        },
+      };
+    }
+    if (result > 0) {
+      await this._assets.update({ amount: result }, { where: { id } });
+    }
     return asset;
   }
 }
