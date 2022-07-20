@@ -23,6 +23,14 @@ class GetAssets {
     }
     return asset?.toJSON() as IAsset;
   }
+
+  async buyAsset(id:number, quantityPurchased:number): Promise<IAsset | IError> {
+    const asset = await this.assetId(id);
+    const { amount } = asset as IAsset;
+    const result = Number(amount - quantityPurchased);
+    await this._assets.update({ amount: result }, { where: { id } });
+    return asset;
+  }
 }
 
 export default GetAssets;

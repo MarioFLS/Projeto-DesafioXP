@@ -1,17 +1,17 @@
 import { StatusCodes } from 'http-status-codes';
 import { IUser } from '../interface/interface.user';
-import SearchUserWallet from './search.database.wallet';
+import HelpSearchUserWallet from './search.database.wallet';
 import { IError } from '../interface/interface.error';
 
-class Balance {
+class HelpBalance {
   private _id:number;
   private _valor:number;
   private _wallet: Promise<IUser>;
 
-  constructor(id: number, valor: number) {
+  constructor(id: number, value: number) {
     this._id = id;
-    this._valor = valor;
-    this._wallet = SearchUserWallet(this._id);
+    this._valor = value;
+    this._wallet = HelpSearchUserWallet(this._id);
   }
 
   async deposit(): Promise<number> {
@@ -29,10 +29,10 @@ class Balance {
     throw {
       error: {
         code: StatusCodes.NOT_ACCEPTABLE,
-        message: 'Você não tem dinheiro o suficiente',
+        message: 'Você não possui dinheiro o suficiente para completar a transação',
       },
     };
   }
 }
 
-export default Balance;
+export default HelpBalance;
