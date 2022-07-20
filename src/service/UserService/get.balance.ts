@@ -11,16 +11,8 @@ class GetBalance {
       attributes: ['name', 'id'],
       include: [{ model: Wallet, as: 'wallet', attributes: ['balance'] }],
     });
-    if (result) {
-      const { id, wallet: { balance } } = result?.toJSON() as IBalance;
-      return { id, name, balance };
-    }
-    return {
-      error: {
-        code: StatusCodes.NOT_FOUND,
-        message: 'Esse usuário não existe! Tente Outro',
-      },
-    };
+    const { id, wallet: { balance } } = result?.toJSON() as IBalance;
+    return { id, name, balance };
   }
 }
 

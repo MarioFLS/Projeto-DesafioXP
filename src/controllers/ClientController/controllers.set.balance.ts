@@ -4,7 +4,7 @@ import { IError } from '../../interface/interface.error';
 import { Usertoken } from '../../interface/interface.user';
 import SetBalance from '../../service/UserService/set.balance';
 
-class UserDeposit {
+class ClientDeposit {
   static async setBalance(
     { id, name }:Usertoken,
     req:Request,
@@ -23,4 +23,4 @@ class UserDeposit {
   }
 }
 
-export default UserDeposit;
+export default ClientDeposit;
