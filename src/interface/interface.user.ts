@@ -1,7 +1,7 @@
 export interface IUser {
   id:number,
   name:string,
-  balance:number
+  balance?:number
 }
 
 export interface IBalance extends IUser {
