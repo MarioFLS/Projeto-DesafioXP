@@ -10,6 +10,9 @@ class TokenValidate {
   static async tokenValidate(req: Request, res: Response, next: NextFunction):
   Promise<Response | void> {
     const { authorization } = req.headers;
+    const message = 'Você está tentando usar um token inválido ou expirado. '
+      + 'Tente novamente';
+
     if (!authorization) {
       return res
         .status(StatusCodes.UNAUTHORIZED)
@@ -17,19 +20,18 @@ class TokenValidate {
           message: 'Você precisa inserir um token para seguir adiante.',
         });
     }
+
     try {
       const token = jwt.verify(authorization, secret) as {id:number, email:string};
       const verifyUser = await new UserClass(token.email).user();
+
       if (!verifyUser) {
-        return res.status(StatusCodes.UNAUTHORIZED)
-          .json({ message: 'Esse token está expirado ou usário foi atualizado.' });
+        return res.status(StatusCodes.UNAUTHORIZED).json({ message });
       }
+
       return next(token);
     } catch (error) {
-      return res.status(StatusCodes.UNAUTHORIZED).json({
-        message:
-          'Você está tentando usar um token inválido ou expirado. Tente novamente',
-      });
+      return res.status(StatusCodes.UNAUTHORIZED).json({ message });
     }
   }
 }
