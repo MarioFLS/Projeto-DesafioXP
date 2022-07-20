@@ -5,9 +5,9 @@ import { IError } from '../../interface/interface.error';
 import User from '../../models/User';
 
 class UserLogin {
-  static async login(email:string, password:string): Promise<String | IError> {
+  static async login(userEmail:string, password:string): Promise<String | IError> {
     const secret = process.env.SECRET_PASSWORD as string;
-    const result = await User.findOne({ where: { email, password } });
+    const result = await User.findOne({ where: { email: userEmail, password } });
     if (!result) {
       return {
         error: {
@@ -16,8 +16,10 @@ class UserLogin {
         },
       };
     }
-    const { id, name } = result.toJSON();
-    const payload = { id, name, admin: false };
+    const { id, name, email } = result.toJSON();
+    const payload = {
+      id, name, email, admin: false,
+    };
     const token = jwt.sign(payload, secret, {
       expiresIn: '1h',
       algorithm: 'HS256',

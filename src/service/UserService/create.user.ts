@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { StatusCodes } from 'http-status-codes';
 import jwt from 'jsonwebtoken';
-import UserClass from '../../helpers/search.databaseuser';
+import UserClass from '../../helpers/search.database.user';
 import { IError } from '../../interface/interface.error';
 import { INewUser } from '../../interface/interface.user';
 import User from '../../models/User';
@@ -32,7 +32,9 @@ class CreateUser {
     const { name } = create.toJSON();
     await Wallet.create({ userId: id, balance: saldo });
 
-    const payload = { id, name, admin: false };
+    const payload = {
+      id, name, email, admin: false,
+    };
     const token = jwt.sign(payload, secret, {
       expiresIn: '1h',
       algorithm: 'HS256',
