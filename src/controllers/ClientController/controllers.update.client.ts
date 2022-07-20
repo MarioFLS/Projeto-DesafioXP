@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { Usertoken } from '../../interface/interface.user';
-import UserUpdate from '../../service/UserService/update.user';
+import UserUpdate from '../../service/User/update.user';
 
 class ClientUpdate {
   static async update({ id }:Usertoken, req:Request, res:Response, _next:NextFunction)

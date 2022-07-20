@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
 import { Usertoken } from '../../interface/interface.user';
-import GetBalance from '../../service/UserService/get.balance';
+import GetBalance from '../../service/User/get.balance';
 
 class ClientBalance {
   static async getBalance(

@@ -15,12 +15,11 @@ class GetAssets {
       }],
     });
     const assets = result?.toJSON();
-    assets.Assets = assets.Assets.length > 0
-      ? assets.Assets.map((asset:IAssetsEntry) => ({
-        id: asset.assetId,
-        price: asset.purchasePrice,
-        quantity: asset.quantity,
-      })) : 'Você não possui Ativos no momento';
+    assets.Assets = assets.Assets.map((asset:IAssetsEntry) => ({
+      id: asset.assetId,
+      price: asset.purchasePrice,
+      quantity: asset.quantity,
+    }));
 
     return assets;
   }

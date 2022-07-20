@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
-import CreateUser from '../../service/UserService/create.user';
+import CreateUser from '../../service/User/create.user';
 
 class CreateClient {
   static async create(req:Request, res:Response, next:NextFunction)

@@ -7,7 +7,7 @@
     "lint": "eslint --ext .ts .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
-    "restart": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
+    "restore": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",

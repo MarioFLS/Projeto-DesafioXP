@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
 import { Usertoken } from '../../interface/interface.user';
-import SetBalance from '../../service/UserService/set.balance';
+import SetBalance from '../../service/User/set.balance';
 
 class ClientDeposit {
   static async setBalance(

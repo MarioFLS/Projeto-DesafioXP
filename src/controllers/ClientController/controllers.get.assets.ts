@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
 import { Usertoken } from '../../interface/interface.user';
-import GetAssets from '../../service/UserService/get.assets';
+import GetAssets from '../../service/User/get.assets';
 
 class ClientAssets {
   static async getAssets({ id }:Usertoken, _req:Request, res:Response, next:NextFunction)

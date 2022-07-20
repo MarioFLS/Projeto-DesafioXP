@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
-import deleteUser from '../../service/UserService/delete.user';
+import deleteUser from '../../service/User/delete.user';
 import { Usertoken } from '../../interface/interface.user';
 
 class DeleteClient {

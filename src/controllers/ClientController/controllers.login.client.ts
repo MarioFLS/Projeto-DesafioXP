@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IError } from '../../interface/interface.error';
-import UserLogin from '../../service/UserService/login.user';
+import UserLogin from '../../service/User/login.user';
 
 class ClientLogin {
   static async login(req:Request, res:Response, next:NextFunction)
