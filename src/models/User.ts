@@ -3,7 +3,6 @@ import {
 } from 'sequelize';
 
 import db from '.';
-import Asset from './Asset';
 import UserAssets from './UserAssets';
 import UserHistory from './UserHistory';
 import Wallet from './Wallet';
@@ -51,8 +50,8 @@ Wallet.belongsTo(User, { as: 'user', foreignKey: 'user_id' });
 User.hasOne(Wallet, { as: 'wallet', foreignKey: 'user_id' });
 
 User.hasMany(UserAssets, { as: 'Assets', foreignKey: 'user_id' });
-UserAssets.belongsTo(User, {
-  as: 'user', foreignKey: 'user_Id',
+UserAssets.belongsToMany(User, {
+  as: 'user', foreignKey: 'user_Id', through: UserAssets, otherKey: 'asset_id',
 });
 
 User.hasMany(UserHistory, { as: 'History', foreignKey: 'user_id' });
