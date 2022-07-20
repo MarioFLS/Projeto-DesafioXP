@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import { StatusCodes } from 'http-status-codes';
-import UserClass from '../helpers/search.database.user';
+import HelpUserClass from '../helpers/search.database.user';
 
 const secret = process.env.SECRET_PASSWORD as string;
 
@@ -22,7 +22,7 @@ class TokenValidate {
 
     try {
       const token = jwt.verify(authorization, secret) as {id:number, email:string};
-      const verifyUser = await new UserClass(token.email).user();
+      const verifyUser = await new HelpUserClass(token.email).user();
 
       if (!verifyUser) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message });

@@ -1,6 +1,6 @@
 import User from '../models/User';
 
-class UserClass {
+class HelpUserClass {
   private _name?:string;
   private _email:string;
 
@@ -15,4 +15,4 @@ class UserClass {
   }
 }
 
-export default UserClass;
+export default HelpUserClass;

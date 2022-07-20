@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { StatusCodes } from 'http-status-codes';
 import jwt from 'jsonwebtoken';
-import UserClass from '../../helpers/search.database.user';
+import HelpUserClass from '../../helpers/search.database.user';
 import { IError } from '../../interface/interface.error';
 import { INewUser } from '../../interface/interface.user';
 import User from '../../models/User';
@@ -14,7 +14,7 @@ class CreateUser {
     } = user;
     const secret = process.env.SECRET_PASSWORD as string;
 
-    const checkUser = await new UserClass(email).user();
+    const checkUser = await new HelpUserClass(email).user();
     if (checkUser) {
       return {
         error: {
