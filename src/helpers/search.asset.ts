@@ -23,7 +23,6 @@ class HelpAssets {
         { balance },
         { where: { user_id: userId } },
       );
-
       return balance;
     } catch (error) {
       return error as IError;

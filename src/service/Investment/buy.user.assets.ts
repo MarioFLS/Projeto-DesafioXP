@@ -2,7 +2,7 @@ import HelpBuyUserAsset from '../../helpers/buy.user.assets';
 import HelpAssets from '../../helpers/search.asset';
 import { IError } from '../../interface/interface.error';
 
-class Investment {
+class InvestmentBuy {
   static async buyAssets(userId: number, assetId:number, quantity:number):
     Promise<number[] | IError | void> {
     try {
@@ -18,4 +18,4 @@ class Investment {
   }
 }
 
-export default Investment;
+export default InvestmentBuy;
