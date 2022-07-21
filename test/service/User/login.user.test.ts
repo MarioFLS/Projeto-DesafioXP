@@ -7,7 +7,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const { expect } = chai;
 
-describe("Teste de Login do Usuário >>>>>>>>>>>>>>>>>>>>>>>>>>>>>", () => {
+describe("Teste de Login do Usuário >>> ", () => {
     it("Caso haja sucesso no Login", async () => {
         const response = await UserLogin.login('pedroJorge@gmail.com', '123456') as string;
         const verifyJwt = jwt.verify(response,  process.env.SECRET_PASSWORD as string);
