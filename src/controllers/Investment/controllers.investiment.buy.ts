@@ -4,14 +4,10 @@ import { IError } from '../../interface/interface.error';
 import InvestmentBuy from '../../service/Investment/buy.user.assets';
 
 class InvestimentBuy {
-  static async buy(
-    { id: userId }:{id:number},
-    req:Request,
-    res:Response,
-    next:NextFunction,
-  )
+  static async buy(userId:number, req:Request, res:Response, next:NextFunction)
   : Promise<Response | void> {
     const { id, quantity } = req.body;
+    console.log(id);
     const investiment = await InvestmentBuy.buyAssets(userId, id, quantity);
     const { error } = investiment as IError;
     if (error) { return next(investiment); }
