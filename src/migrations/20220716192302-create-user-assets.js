@@ -25,9 +25,6 @@ module.exports = {
           key: 'id',
         },
       },
-      amount: {
-        type: Sequelize.DECIMAL(10, 2),
-      },
       quantity: { type: Sequelize.INTEGER },
     });
   },
