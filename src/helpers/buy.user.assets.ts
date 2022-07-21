@@ -17,8 +17,10 @@ class HelpBuyUserAsset {
     const asset = await new GetAssets().assetId(this._assetId);
     const { error } = asset as IError;
     if (error) return asset as IError;
+
     const { price } = asset as {price:number};
     const result = price * quantity;
+
     const newAsset = {
       userId: this._userId,
       assetId: this._assetId,
@@ -28,28 +30,20 @@ class HelpBuyUserAsset {
     return this._userAsset.create(newAsset);
   }
 
-  private async updateUserAsset(quantityToBuy:number, value:number, quantity:number):
+  private async updateUserAsset(quantityToBuy:number, quantity:number):
   Promise<number[]> {
-    const asset = await new GetAssets().assetId(this._assetId);
-    const { price } = asset as {price:number};
-    const result = Number(price) * quantityToBuy + Number(value);
     const sumQuantity = quantityToBuy + Number(quantity);
-    const newAsset = { amount: result, quantity: sumQuantity };
-    return this._userAsset
-      .update(newAsset, {
-        where: {
-          userId: this._userId,
-          assetId: this._assetId,
-        },
-      }) as Promise<number[]>;
+
+    return this._userAsset.update({ quantity: sumQuantity }, {
+      where: { userId: this._userId, assetId: this._assetId },
+    }) as Promise<number[]>;
   }
 
   async buyUserAsset(quantityToBuy:number): Promise<userAssets | number[] | IError> {
     const asset = await HelpUserAssets.getUserAssets(this._userId, this._assetId);
     if (!asset) return this.createUserAsset(quantityToBuy);
-    const { amount, quantity } = asset?.toJSON() as {
-      amount:number, quantity:number};
-    return this.updateUserAsset(quantityToBuy, amount, quantity);
+    const { quantity } = asset?.toJSON() as { quantity:number};
+    return this.updateUserAsset(quantityToBuy, quantity);
   }
 }
 
