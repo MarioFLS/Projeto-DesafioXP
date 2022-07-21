@@ -1,8 +1,9 @@
 import userAssets from '../models/UserAssets';
 import GetAssets from '../service/Assets/get.assets';
 import { IError } from '../interface/interface.error';
+import HelpUserAssets from './search.user.assets';
 
-class HelpUserAssetBuy {
+class HelpBuyUserAsset {
   private _userAsset = userAssets;
   private _userId:number;
   private _assetId:number;
@@ -21,7 +22,7 @@ class HelpUserAssetBuy {
     const newAsset = {
       userId: this._userId,
       assetId: this._assetId,
-      purchasePrice: result,
+      amount: result,
       quantity,
     };
     return this._userAsset.create(newAsset);
@@ -33,7 +34,7 @@ class HelpUserAssetBuy {
     const { price } = asset as {price:number};
     const result = Number(price) * quantityToBuy + Number(value);
     const sumQuantity = quantityToBuy + Number(quantity);
-    const newAsset = { purchasePrice: result, quantity: sumQuantity };
+    const newAsset = { amount: result, quantity: sumQuantity };
     return this._userAsset
       .update(newAsset, {
         where: {
@@ -43,15 +44,13 @@ class HelpUserAssetBuy {
       }) as Promise<number[]>;
   }
 
-  async getUserAsset(quantityToBuy:number): Promise<userAssets | number[] | IError> {
-    const asset = await this._userAsset.findOne({
-      where: { userId: this._userId, assetId: this._assetId },
-    });
+  async buyUserAsset(quantityToBuy:number): Promise<userAssets | number[] | IError> {
+    const asset = await HelpUserAssets.getUserAssets(this._userId, this._assetId);
     if (!asset) return this.createUserAsset(quantityToBuy);
-    const { purchasePrice, quantity } = asset?.toJSON() as {
-      purchasePrice:number, quantity:number};
-    return this.updateUserAsset(quantityToBuy, purchasePrice, quantity);
+    const { amount, quantity } = asset?.toJSON() as {
+      amount:number, quantity:number};
+    return this.updateUserAsset(quantityToBuy, amount, quantity);
   }
 }
 
-export default HelpUserAssetBuy;
+export default HelpBuyUserAsset;
