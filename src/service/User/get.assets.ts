@@ -2,24 +2,29 @@ import { IError } from '../../interface/interface.error';
 import User from '../../models/User';
 import userAssets from '../../models/UserAssets';
 import { IAssetsEntry, IUserAsset } from '../../interface/interface.user.assets';
+import HelpAssets from '../../helpers/search.asset';
 
 class GetAssets {
-  static async getAssets(param:number): Promise<IUserAsset | IError> {
+  static async getAssets(param:number): Promise<IUserAsset | IError | any> {
     const result = await User.findOne({
       where: { id: param },
       attributes: ['id', 'name'],
       include: [{
         model: userAssets,
         as: 'Assets',
-        attributes: ['assetId', 'amount', 'quantity'],
+        attributes: ['assetId', 'quantity'],
       }],
     });
     const assets = result?.toJSON();
-    console.log('aqui mesmo');
-    assets.Assets = assets.Assets.map((asset:IAssetsEntry) => ({
-      id: asset.assetId,
-      amount: asset.amount,
-      quantity: asset.quantity,
+
+    assets.Assets = await Promise.all(assets.Assets.map(async (asset:IAssetsEntry) => {
+      const priceAssets = await new HelpAssets().findAsset(asset.assetId);
+      const { price } = priceAssets.toJSON();
+      return {
+        id: asset.assetId,
+        quantity: asset.quantity,
+        amount: price * asset.quantity,
+      };
     }));
 
     return assets;

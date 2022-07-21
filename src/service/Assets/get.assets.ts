@@ -24,6 +24,14 @@ class GetAssets {
     return asset?.toJSON() as IAsset;
   }
 
+  async saleAsset(id:number, soldAmount:number): Promise<IError | number> {
+    const asset = await this.assetId(id);
+    const { amount, price } = asset as IAsset;
+    const amountSum = amount + soldAmount;
+    await this._assets.update({ amount: amountSum }, { where: { id } });
+    return Number(price) * soldAmount;
+  }
+
   async buyAsset(id:number, quantityPurchased:number): Promise<IAsset | IError> {
     const asset = await this.assetId(id);
     const { amount } = asset as IAsset;
