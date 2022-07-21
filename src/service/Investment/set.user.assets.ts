@@ -1,4 +1,4 @@
-import HelpUserAssetBuy from '../../helpers/search.database.user.assets';
+import HelpUserAssetBuy from '../../helpers/buy.user.assets';
 import HelpAssets from '../../helpers/search.asset';
 import { IError } from '../../interface/interface.error';
 
