@@ -8,7 +8,7 @@ userAssets.init(
   {
     userId: { type: INTEGER, field: 'user_id', primaryKey: true },
     assetId: { type: INTEGER, field: 'asset_id', primaryKey: true },
-    purchasePrice: { type: DECIMAL, field: 'purchase_price', allowNull: false },
+    amount: { type: INTEGER, allowNull: false },
     quantity: { type: DECIMAL, allowNull: false },
   },
   {

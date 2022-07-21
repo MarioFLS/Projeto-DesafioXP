@@ -11,13 +11,14 @@ class GetAssets {
       include: [{
         model: userAssets,
         as: 'Assets',
-        attributes: ['assetId', 'purchasePrice', 'quantity'],
+        attributes: ['assetId', 'amount', 'quantity'],
       }],
     });
     const assets = result?.toJSON();
+    console.log('aqui mesmo');
     assets.Assets = assets.Assets.map((asset:IAssetsEntry) => ({
       id: asset.assetId,
-      price: asset.purchasePrice,
+      amount: asset.amount,
       quantity: asset.quantity,
     }));
 

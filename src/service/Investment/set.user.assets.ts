@@ -1,4 +1,4 @@
-import HelpUserAssetBuy from '../../helpers/buy.user.assets';
+import HelpBuyUserAsset from '../../helpers/buy.user.assets';
 import HelpAssets from '../../helpers/search.asset';
 import { IError } from '../../interface/interface.error';
 
@@ -10,7 +10,7 @@ class Investment {
       const { error } = balance as IError;
 
       if (error) { return balance as IError; }
-      const result = await new HelpUserAssetBuy(userId, assetId).getUserAsset(quantity);
+      const result = await new HelpBuyUserAsset(userId, assetId).buyUserAsset(quantity);
       return result as number[];
     } catch (error) {
       return error as IError;
