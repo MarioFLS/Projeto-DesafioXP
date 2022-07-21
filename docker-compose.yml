@@ -28,6 +28,7 @@ services:
       DB_USER: root
       DB_PASSWORD: password
       DB_HOST: db
+      APP_PORT: 3000
 
   # Serviço que irá rodar o banco de dados
   db:

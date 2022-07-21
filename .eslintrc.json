@@ -26,6 +26,10 @@
     "no-else-return": "error",
     "consistent-return": ["off", { "treatUndefinedAsUnspecified": true }],
     "no-unused-vars": "off",
+    "no-console": "off",
+    "no-underscore-dangle":"off",
+    "lines-between-class-members":"off",
+    "no-throw-literal":"off",
     // Comandos tirandos do site do npm do Eslint
     "@typescript-eslint/no-unused-vars": ["warn",
   { 

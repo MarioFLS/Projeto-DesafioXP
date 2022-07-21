@@ -25,11 +25,7 @@ module.exports = {
           key: 'id',
         },
       },
-      purchasePrice: {
-        type: Sequelize.DECIMAL(10, 2),
-        field: 'purchase_price',
-      },
-      quantity: { type: Sequelize.DECIMAL(10, 2) },
+      quantity: { type: Sequelize.INTEGER },
     });
   },
   async down(queryInterface, _Sequelize) {

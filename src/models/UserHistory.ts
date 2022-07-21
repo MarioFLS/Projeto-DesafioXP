@@ -17,7 +17,7 @@ UserHistory.init(
   },
   {
     sequelize: db,
-    modelName: 'User_Historic',
+    modelName: 'User_History',
     timestamps: false,
   },
 );
