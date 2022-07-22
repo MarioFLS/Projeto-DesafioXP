@@ -18,7 +18,7 @@ describe('Teste de Service - Testando deletar um usuário >>> ', () => {
     const userExists = await User.findOne({ where: { id: 1 } });
     expect(userExists?.toJSON()).to.be.deep.contain({email, password});
 
-    await DeleteUser('pedroJorge@gmail.com', '123456');
+    await DeleteUser.delete('pedroJorge@gmail.com', '123456');
     const userNotExists = await User.findOne({ where: { id: 1 } });
     expect(userNotExists).to.be.null;
   });

@@ -20,7 +20,7 @@ describe('Teste de Service - Testando atualização do Usuário Usuário >>> ', 
   });
 
   it('Testando se é possível atualizar o usuário', async () => {
-    const response = await UserUpdate(userfake, 2);
+    const response = await UserUpdate.userUpdate(userfake, 2);
     const user = await User.findOne({ where: { email: fake.email, id:2 } });
     const result = user?.toJSON();
 

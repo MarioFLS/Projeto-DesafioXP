@@ -6,7 +6,7 @@ import UserUpdate from '../../service/User/update.user';
 class ClientUpdate {
   static async update({ id }:Usertoken, req:Request, res:Response, _next:NextFunction)
   : Promise<Response> {
-    const token = await UserUpdate(req.body, id);
+    const token = await UserUpdate.userUpdate(req.body, id);
     return res.status(StatusCodes.OK).json({ token });
   }
 }

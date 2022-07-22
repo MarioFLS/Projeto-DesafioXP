@@ -21,7 +21,7 @@ describe('Teste de Service - Testando se é possivel criar um Usuário >>> ', ()
 
   it('Criando um falso usuário', async () => {
     const newFakeUser = { ...userfake, saldo: 100 } as INewUser;
-    const response = (await CreateUser(newFakeUser)) as string;
+    const response = (await CreateUser.createUser(newFakeUser)) as string;
     const verifyJwt = jwt.verify(
       response,
       process.env.SECRET_PASSWORD as string
@@ -35,7 +35,7 @@ describe('Teste de Service - Testando se é possivel criar um Usuário >>> ', ()
 
   it('Esperando erro ao criar um usuário que já existe', async () => {
     const newFakeUser = { ...userfake, saldo: 100 } as INewUser;
-    const response = (await CreateUser(newFakeUser)) as string;
+    const response = (await CreateUser.createUser(newFakeUser)) as string;
 
     expect(response).to.deep.equal({
       error: {

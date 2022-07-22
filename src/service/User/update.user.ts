@@ -22,4 +22,4 @@ class UserUpdate {
   }
 }
 
-export default UserUpdate.userUpdate;
+export default UserUpdate;
