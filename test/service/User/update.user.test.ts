@@ -1,6 +1,6 @@
 import chai from 'chai';
 import jwt from 'jsonwebtoken';
-const shell = require('shelljs');
+import shell from 'shelljs';
 import UserUpdate from '../../../src/service/User/update.user';
 import { restoreDatabase } from '../../helpers/comand';
 import User from '../../../src/models/User';
