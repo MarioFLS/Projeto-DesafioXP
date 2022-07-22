@@ -21,6 +21,7 @@ describe('Teste de Controllers - Testando Atualizar o Cliente', () => {
   const _next = Sinon.stub().returns({ error: {} }) as NextFunction;
 
   beforeEach(() => {
+    req.body = 'Nome Muito Falso'
     res.status = Sinon.stub().returns(res);
     res.json = Sinon.stub().resolves();
 
