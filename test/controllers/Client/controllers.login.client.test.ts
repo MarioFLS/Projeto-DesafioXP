@@ -52,7 +52,6 @@ describe('Teste de Controllers - Teste se o Token é seguro - Ele olha o proprio
       .post('/client/login')
       .send(fakeUser);
     expect(response).to.have.status(StatusCodes.UNAUTHORIZED);
-    console.log(response);
     expect(response.body).to.deep.equal({ message: 'Seu email ou senha estão incorretos.' });
   });
 });

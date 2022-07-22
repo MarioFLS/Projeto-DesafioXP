@@ -8,10 +8,10 @@ class DeleteClient {
   static async delete({ email }:Usertoken, req:Request, res:Response, next:NextFunction)
   : Promise<Response | void> {
     const { password } = req.body;
-    const user = await deleteUser(email, password);
+    const user = await deleteUser.delete(email, password);
     const { error } = user as IError;
     if (error) return next(user);
-    return res.status(StatusCodes.NO_CONTENT).json({ message: 'O usuário foi deletado' });
+    return res.status(StatusCodes.NO_CONTENT);
   }
 }
 

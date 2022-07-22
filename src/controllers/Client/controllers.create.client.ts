@@ -6,7 +6,7 @@ import CreateUser from '../../service/User/create.user';
 class CreateClient {
   static async create(req:Request, res:Response, next:NextFunction)
   : Promise<Response | void> {
-    const token = await CreateUser(req.body);
+    const token = await CreateUser.createUser(req.body);
     const { error } = token as IError;
     if (error) return next(token);
     return res.status(StatusCodes.CREATED).json({ token });

@@ -16,7 +16,7 @@ describe("Teste de Service - Teste de Login do Usuário >>> ", () => {
     it("Caso haja erro no Login", async () => {
       const response = await UserLogin.login('usuario fake', 'senha fake') as string;
       expect(response).to.deep.equal({"error": {
-        "code": StatusCodes.FORBIDDEN,
+        "code": StatusCodes.UNAUTHORIZED,
         "message": "Seu email ou senha estão incorretos."
         }});
   })
