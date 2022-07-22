@@ -36,4 +36,17 @@ describe('Teste de Service - Testando o saldo do usuário >>> ', () => {
 
     expect(value).to.be.equal(subtract);
   });
+
+  it('Caso de erro no Saque', async () => {
+    const wallet = await Wallet.findOne({where:{userId:1}});
+    const balance = Number(wallet?.getDataValue('balance'))
+    const subtract = balance - 999999;
+    await SetBalance.setBalance(1, 999999, 'withdraw');
+    
+    const newWallet = await Wallet.findOne({where:{userId:1}})
+    const value = Number(newWallet?.getDataValue('balance'))
+
+    expect(value).to.be.not.equal(subtract);
+    expect(value).to.be.equal(balance);
+  });
 });
