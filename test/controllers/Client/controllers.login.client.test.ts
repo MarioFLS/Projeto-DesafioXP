@@ -2,11 +2,10 @@ import Sinon from 'sinon';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import sinonChai from 'sinon-chai';
-import { Request, Response, NextFunction, response } from 'express';
+import { Request, Response, NextFunction } from 'express';
+import { StatusCodes } from 'http-status-codes';
 import ClientLogin from '../../../src/controllers/Client/controllers.login.client';
 import UserLogin from '../../../src/service/User/login.user';
-import { StatusCodes } from 'http-status-codes';
-import User from '../../../src/models/User';
 
 const { expect } = chai;
 chai.use(sinonChai);
@@ -53,7 +52,7 @@ describe('Teste de Controllers - Teste se o Token é seguro - Ele olha o proprio
       .post('/client/login')
       .send(fakeUser);
     expect(response).to.have.status(StatusCodes.UNAUTHORIZED);
-    console.log(response)
-    expect(response.body).to.deep.equal({message: "Seu email ou senha estão incorretos."});
+    console.log(response);
+    expect(response.body).to.deep.equal({ message: 'Seu email ou senha estão incorretos.' });
   });
 });
