@@ -6,7 +6,7 @@ import Wallet from '../../../src/models/Wallet';
 
 const { expect } = chai;
 
-describe('Testando o saldo do usuário >>> ', () => {
+describe('Teste de Service - Testando o saldo do usuário >>> ', () => {
   beforeAll(async () => {
     await shell.exec(restoreDatabase);
   });

@@ -8,7 +8,7 @@ import { userfake } from '../../helpers/mock.format.user';
 
 const { expect } = chai;
 
-describe('Testando atualização do Usuário Usuário >>> ', () => {
+describe('Teste de Service - Testando atualização do Usuário Usuário >>> ', () => {
   const fake = userfake;
 
   beforeEach(async () => {

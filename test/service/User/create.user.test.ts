@@ -10,7 +10,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const { expect } = chai;
 
-describe('Testando se é possivel criar um Usuário >>> ', () => {
+describe('Teste de Service - Testando se é possivel criar um Usuário >>> ', () => {
   beforeAll(async () => {
     await shell.exec(restoreDatabase);
   });

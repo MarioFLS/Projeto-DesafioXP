@@ -6,7 +6,7 @@ import DeleteUser from '../../../src/service/User/delete.user';
 
 const { expect } = chai;
 
-describe('Testando deletar um usuário >>> ', () => {
+describe('Teste de Service - Testando deletar um usuário >>> ', () => {
   beforeEach(async () => await shell.exec(restoreDatabase));
 
   afterEach(async () => await shell.exec(restoreDatabase));

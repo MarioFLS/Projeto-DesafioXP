@@ -5,7 +5,7 @@ import GetAssets from '../../../src/service/User/get.assets';
 
 const { expect } = chai;
 
-describe('Testando os Assets do Usuário >>> ', () => {
+describe('Teste de Service - Testando os Assets do Usuário >>> ', () => {
   beforeAll(async () => await shell.exec(restoreDatabase));
   it('Verificando os assets do usuário de ID 1', async () => {
     const user1 = {
