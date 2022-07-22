@@ -11,7 +11,7 @@ class UserLogin {
     if (!result) {
       return {
         error: {
-          code: StatusCodes.FORBIDDEN,
+          code: StatusCodes.UNAUTHORIZED,
           message: 'Seu email ou senha estão incorretos.',
         },
       };
