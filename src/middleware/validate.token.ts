@@ -21,8 +21,9 @@ class TokenValidate {
     }
 
     try {
-      const token = jwt.verify(authorization, secret) as {id:number, email:string};
-      const verifyUser = await new HelpUserClass(token.email).user();
+      const token = jwt.verify(authorization, secret) as
+      {id:number, email:string, name:string};
+      const verifyUser = await new HelpUserClass(token.email, token.name).checkUser();
 
       if (!verifyUser) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message });

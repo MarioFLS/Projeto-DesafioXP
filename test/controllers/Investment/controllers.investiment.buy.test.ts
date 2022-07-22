@@ -13,7 +13,7 @@ const buy = { id: 1, quantity: 2 };
 const login = { email: 'pedroJorge@gmail.com', password: '123456' };
 
 describe('Teste de Controllers - Testando Compra ativos do Cliente', () => {
-  beforeEach(async () => shell.exec(restoreDatabase));
+  beforeAll(async () => shell.exec(restoreDatabase));
 
   afterAll(async () => shell.exec(restoreDatabase));
 
