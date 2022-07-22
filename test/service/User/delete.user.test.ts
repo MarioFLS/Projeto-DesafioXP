@@ -2,7 +2,6 @@ import chai from 'chai';
 import shell from 'shelljs';
 import { restoreDatabase } from '../../helpers/comand';
 import User from '../../../src/models/User';
-import { userfake } from '../../helpers/mock.format.user';
 import DeleteUser from '../../../src/service/User/delete.user';
 
 const { expect } = chai;
