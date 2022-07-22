@@ -11,6 +11,7 @@ class InvestmentBuy {
 
       if (error) { return balance as IError; }
       const result = await new HelpBuyUserAsset(userId, assetId).buyUserAsset(quantity);
+      console.log('aqui o result>>', result);
       return result as number[];
     } catch (error) {
       return error as IError;

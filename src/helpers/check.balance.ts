@@ -26,7 +26,7 @@ class HelpBalance {
     if (subtraction > 0) { return Number(subtraction.toFixed(2)); }
     throw {
       error: {
-        code: StatusCodes.NOT_ACCEPTABLE,
+        code: StatusCodes.UNAUTHORIZED,
         message: 'Você não possui dinheiro o suficiente para completar a transação',
       },
     };
