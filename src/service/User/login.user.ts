@@ -5,13 +5,13 @@ import { IError } from '../../interface/interface.error';
 import User from '../../models/User';
 
 class UserLogin {
-  static async login(userEmail:string, password:string): Promise<String | IError> {
+  static async login(userEmail:string, password:string): Promise<string | IError> {
     const secret = process.env.SECRET_PASSWORD as string;
     const result = await User.findOne({ where: { email: userEmail, password } });
     if (!result) {
       return {
         error: {
-          code: StatusCodes.FORBIDDEN,
+          code: StatusCodes.UNAUTHORIZED,
           message: 'Seu email ou senha estão incorretos.',
         },
       };

@@ -26,4 +26,4 @@ class DeleteUser {
   }
 }
 
-export default DeleteUser.delete;
+export default DeleteUser;

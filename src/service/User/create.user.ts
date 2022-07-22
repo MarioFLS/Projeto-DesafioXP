@@ -43,4 +43,4 @@ class CreateUser {
   }
 }
 
-export default CreateUser.createUser;
+export default CreateUser;

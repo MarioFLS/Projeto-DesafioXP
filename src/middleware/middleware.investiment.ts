@@ -14,7 +14,6 @@ class ValidateInvestiment {
   ):
       Response | void {
     const { id, quantity } = req.body;
-    console.log('compra user id  ', userId);
     const loginValidation = joi.object({
       id: requiredItemNumber,
       quantity: requiredItemNumber,

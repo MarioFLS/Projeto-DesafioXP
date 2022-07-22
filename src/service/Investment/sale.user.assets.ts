@@ -8,7 +8,6 @@ class InvestmentSale {
     try {
       const balance = await new HelpSaleUserAssets(userId, assetId)
         .saleUserAsset(quantity);
-
       return balance as number[];
     } catch (error) {
       return {

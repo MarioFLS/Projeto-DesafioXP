@@ -8,7 +8,7 @@ class UserUpdate {
   static async userUpdate(user:INewUser, param:number): Promise<string | IError | any> {
     const secret = process.env.SECRET_PASSWORD as string;
     const { name, email } = user;
-    await User.update(user, { where: { id: param } });
+    await User.update({ name }, { where: { id: param } });
 
     const payload = {
       id: param, name, email, admin: false,
@@ -22,4 +22,4 @@ class UserUpdate {
   }
 }
 
-export default UserUpdate.userUpdate;
+export default UserUpdate;
