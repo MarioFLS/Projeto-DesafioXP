@@ -1,6 +1,8 @@
 import Sinon from 'sinon';
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
+import shell from 'shelljs';
+import { restoreDatabase } from '../../helpers/comand';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import ClientBalance from '../../../src/controllers/Client/controllers.get.balance';
@@ -22,6 +24,10 @@ describe('Teste de Controllers - Testando Criar um Cliente', () => {
     res.json = Sinon.stub().resolves();
 
     Sinon.stub(CreateUser, 'createUser').resolves(token);
+  });
+
+  afterAll(async () => {
+    await shell.exec(restoreDatabase);
   });
 
   it('Testando Sucesso no Login', async () => {

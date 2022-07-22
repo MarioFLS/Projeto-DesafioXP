@@ -1,6 +1,8 @@
 import Sinon from 'sinon';
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
+import shell from 'shelljs';
+import { restoreDatabase } from '../../helpers/comand';
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { Usertoken } from '../../../src/interface/interface.user';
@@ -23,6 +25,10 @@ describe('Teste de Controllers - Testando Atualizar o Cliente', () => {
     res.json = Sinon.stub().resolves();
 
     Sinon.stub(UserUpdate, 'userUpdate').resolves(token);
+  });
+
+  afterAll(async () => {
+    await shell.exec(restoreDatabase);
   });
 
   it('Testando Sucesso no Update', async () => {
