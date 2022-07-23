@@ -1,5 +1,5 @@
 import {
-  Model, STRING, DATE, INTEGER, DECIMAL,
+  Model, STRING, DATE, INTEGER,
 } from 'sequelize';
 import db from '.';
 
