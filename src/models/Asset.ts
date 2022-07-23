@@ -3,7 +3,7 @@ import {
 } from 'sequelize';
 import db from '.';
 import UserAssets from './UserAssets';
-import UserHistory from './UserHistory';
+import UserLog from './UserLog';
 
 class Asset extends Model {}
 Asset.init(
@@ -27,9 +27,9 @@ UserAssets.belongsToMany(Asset, {
 
 Asset.hasMany(UserAssets, { as: 'userAssets', foreignKey: 'asset_id' });
 
-UserHistory.belongsToMany(Asset, {
-  as: 'assets', foreignKey: 'asset_id', through: UserHistory, otherKey: 'user_id',
+UserLog.belongsToMany(Asset, {
+  as: 'assets', foreignKey: 'asset_id', through: UserLog, otherKey: 'user_id',
 });
-Asset.hasMany(UserHistory, { as: 'userHistory', foreignKey: 'asset_id' });
+Asset.hasMany(UserLog, { as: 'userHistory', foreignKey: 'asset_id' });
 
 export default Asset;

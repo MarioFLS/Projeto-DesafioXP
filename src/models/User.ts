@@ -4,7 +4,7 @@ import {
 
 import db from '.';
 import UserAssets from './UserAssets';
-import UserHistory from './UserHistory';
+import UserLog from './UserLog';
 import Wallet from './Wallet';
 
 class User extends Model {
@@ -54,9 +54,9 @@ UserAssets.belongsToMany(User, {
   as: 'user', foreignKey: 'user_Id', through: UserAssets, otherKey: 'asset_id',
 });
 
-User.hasMany(UserHistory, { as: 'History', foreignKey: 'user_id' });
-UserHistory.belongsToMany(User, {
-  as: 'user', foreignKey: 'user_Id', through: UserHistory, otherKey: 'asset_id',
+User.hasMany(UserLog, { as: 'History', foreignKey: 'user_id' });
+UserLog.belongsToMany(User, {
+  as: 'user', foreignKey: 'user_Id', through: UserLog, otherKey: 'asset_id',
 });
 
 export default User;

@@ -3,9 +3,9 @@ import {
 } from 'sequelize';
 import db from '.';
 
-class UserHistory extends Model {}
+class UserLog extends Model {}
 
-UserHistory.init(
+UserLog.init(
   {
     id: { type: INTEGER, primaryKey: true },
     userId: { type: INTEGER, allowNull: false, field: 'user_id' },
@@ -13,13 +13,13 @@ UserHistory.init(
     type: { type: STRING, allowNull: false },
     log: { type: DATE, allowNull: false },
     quantity: { type: INTEGER, allowNull: false },
-    amount: { type: DECIMAL, allowNull: false },
+    amount: { type: INTEGER, allowNull: false },
   },
   {
     sequelize: db,
-    modelName: 'User_History',
+    modelName: 'User_Log',
     timestamps: false,
   },
 );
 
-export default UserHistory;
+export default UserLog;

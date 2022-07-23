@@ -4,6 +4,8 @@ import HelpUserAssets from './search.user.assets';
 import GetAssets from '../service/Assets/get.assets';
 import HelpBalance from './check.balance';
 import Wallet from '../models/Wallet';
+import UserLog from '../models/UserLog';
+import HelpAssets from './search.asset';
 
 class HelpSaleUserAssets {
   private _userAsset = userAssets;
@@ -19,10 +21,18 @@ class HelpSaleUserAssets {
     const { quantity } = asset.toJSON();
     const value = await new GetAssets().saleAsset(this._assetId, soldAmount);
     const balance = await new HelpBalance(this._userId, Number(value)).deposit();
-    await Wallet.update(
-      { balance },
-      { where: { user_id: this._userId } },
-    );
+    await Wallet.update({ balance }, { where: { user_id: this._userId } });
+    const amount = await new HelpAssets().findAsset(this._assetId);
+    const { price } = amount.toJSON();
+    const log = Date.now();
+    await UserLog.create({
+      userId: this._userId,
+      assetId: this._assetId,
+      type: 'venda',
+      log,
+      quantity: soldAmount,
+      amount: price * soldAmount,
+    });
     return quantity;
   }
   async saleUserAsset(quantitySale:number) {
