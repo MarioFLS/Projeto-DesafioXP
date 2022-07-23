@@ -13,8 +13,18 @@ describe('Teste de Service - Testando a Compra de Ativos >>> ', () => {
     id: 1,
     name: 'Pedro Jorge',
     Assets: [
-      { amount: 322.32, id: 1, quantity: 4 },
-      { amount: 5.78, id: 2, quantity: 2 },
+      {
+        id: 1,
+        name: 'AAPL',
+        quantity: 4,
+        amount: 322.32,
+      },
+      {
+        id: 2,
+        name: "MGLU3",
+        quantity: 2,
+        amount: 5.78,
+      },
     ],
   };
 

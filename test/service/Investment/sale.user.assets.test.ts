@@ -12,8 +12,18 @@ describe('Teste de Service - Testando a venda de Ativos >>> ', () => {
     id: 1,
     name: 'Pedro Jorge',
     Assets: [
-      { amount: 161.16, id: 1, quantity: 2 },
-      { amount: 5.78, id: 2, quantity: 2 },
+      {
+        id: 1,
+        name: 'AAPL',
+        quantity: 2,
+        amount: 161.16,
+      },
+      {
+        id: 2,
+        name: "MGLU3",
+        quantity: 2,
+        amount: 5.78,
+      },
     ],
   };
 

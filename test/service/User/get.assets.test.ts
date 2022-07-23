@@ -14,11 +14,13 @@ describe('Teste de Service - Testando os Assets do Usuário >>> ', () => {
       Assets: [
         {
           id: 1,
+          name: 'AAPL',
           quantity: 2,
           amount: 161.16,
         },
         {
           id: 2,
+          name: "MGLU3",
           quantity: 2,
           amount: 5.78,
         },

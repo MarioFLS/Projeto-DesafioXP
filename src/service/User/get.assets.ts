@@ -19,9 +19,10 @@ class GetAssets {
 
     assets.Assets = await Promise.all(assets.Assets.map(async (asset:IAssetsEntry) => {
       const priceAssets = await new HelpAssets().findAsset(asset.assetId);
-      const { price } = priceAssets.toJSON();
+      const { price, name } = priceAssets.toJSON();
       return {
         id: asset.assetId,
+        name,
         quantity: asset.quantity,
         amount: price * asset.quantity,
       };

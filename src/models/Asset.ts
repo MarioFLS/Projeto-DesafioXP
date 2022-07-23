@@ -10,6 +10,7 @@ Asset.init(
   {
     id: { type: INTEGER, primaryKey: true },
     name: { type: STRING, allowNull: false },
+    company: { type: STRING, allowNull: false },
     amount: { type: INTEGER, allowNull: false },
     price: { type: DECIMAL, allowNull: false },
   },

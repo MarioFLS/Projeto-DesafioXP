@@ -10,6 +10,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING(100),
       },
+      company: {
+        type: Sequelize.STRING(100),
+      },
       amount: {
         type: Sequelize.INTEGER,
       },
