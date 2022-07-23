@@ -7,8 +7,8 @@ import User from '../../models/User';
 class UserUpdate {
   static async userUpdate(user:INewUser, param:number): Promise<string | IError | any> {
     const secret = process.env.SECRET_PASSWORD as string;
-    const { name, email } = user;
-    await User.update({ name }, { where: { id: param } });
+    const { name, email, password } = user;
+    await User.update({ name, password }, { where: { id: param } });
 
     const payload = {
       id: param, name, email, admin: false,

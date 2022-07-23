@@ -7,7 +7,8 @@ class ClientUpdate {
   static async update({ id, email }:
     Usertoken, req:Request, res:Response, _next:NextFunction)
   : Promise<Response> {
-    const user = { name: req.body.name, email } as INewUser;
+    const { name, password } = req.body;
+    const user = { name, password, email } as INewUser;
     const token = await UserUpdate.userUpdate(user, id);
     return res.status(StatusCodes.OK).json({ token });
   }

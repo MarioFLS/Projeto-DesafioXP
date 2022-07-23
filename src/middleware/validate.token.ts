@@ -23,6 +23,7 @@ class TokenValidate {
     try {
       const token = jwt.verify(authorization, secret) as
       {id:number, email:string, name:string};
+      console.log(token);
       const verifyUser = await new HelpUserClass(token.email, token.name).checkUser();
 
       if (!verifyUser) {

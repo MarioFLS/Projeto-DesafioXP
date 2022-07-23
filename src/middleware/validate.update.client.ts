@@ -11,7 +11,7 @@ class ValidateUpdate {
     const { password, name } = req.body;
     const loginValidation = joi.object({
       name: requiredItemString.min(6),
-      password: requiredItemString.min(6),
+      password: joi.string().min(6),
     })
       .messages({
         'any.required': 'Insira seus dados corretamente',
