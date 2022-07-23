@@ -11,6 +11,7 @@ import validateNewUser from '../middleware/validate.new.user';
 import ValidateUpdate from '../middleware/validate.update.client';
 import ClientAssets from '../controllers/Client/controllers.get.assets';
 import DeleteClient from '../controllers/Client/controllers.delete.client';
+import ClientHistory from '../controllers/Client/controllers.get.client.history';
 
 const clienteRoute = express.Router();
 
@@ -21,6 +22,7 @@ clienteRoute.post('/login', validateLogin, ClientLogin.login);
 
 clienteRoute.get('/conta', TokenValidate, ClientBalance.getBalance);
 clienteRoute.get('/ativos', TokenValidate, ClientAssets.getAssets);
+clienteRoute.get('/log', TokenValidate, ClientHistory.history);
 
 clienteRoute.post(
   '/conta/deposito',
