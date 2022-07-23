@@ -25,8 +25,6 @@ describe('Teste de Service - Testando atualização do Usuário Usuário >>> ', 
     const response = await UserUpdate.userUpdate(userUpdate, 1);
     const user = await User.findOne({ where: { id: 1 } });
     const result = user?.toJSON();
-    console.log(result.name)
-    console.log('eeeeeeeeeee', userUpdate.name)
 
     expect(result.name).to.be.equal(userUpdate.name);
 

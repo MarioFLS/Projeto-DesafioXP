@@ -2,7 +2,7 @@ import chai from 'chai';
 import shell from 'shelljs';
 import { restoreDatabase } from '../../helpers/comand';
 import InvestimentSale from '../../../src/service/Investment/sale.user.assets';
-import GetAssets from '../../../src/service/User/get.assets';
+import GetUserAssets from '../../../src/service/User/get.assets';
 import { StatusCodes } from 'http-status-codes';
 import InvestimentBuy from '../../../src/service/Investment/buy.user.assets';
 
@@ -37,12 +37,12 @@ describe('Teste de Service - Testando a Compra de Ativos >>> ', () => {
   });
 
   it('Se é possivel comprar os ativos do usuário', async () => {
-    const user = await GetAssets.getAssets(1);
+    const user = await GetUserAssets.getAssets(1);
     expect(user.Assets).to.be.length(2);
 
     await InvestimentBuy.buyAssets(1, 1, 2);
 
-    const sale = await GetAssets.getAssets(1);
+    const sale = await GetUserAssets.getAssets(1);
     expect(sale.Assets).to.be.length(2);
     expect(sale).to.deep.equal(userTest);
   });

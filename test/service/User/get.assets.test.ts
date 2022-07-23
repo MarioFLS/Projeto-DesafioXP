@@ -1,7 +1,7 @@
 import chai from 'chai';
 import shell from 'shelljs';
 import { restoreDatabase } from '../../helpers/comand';
-import GetAssets from '../../../src/service/User/get.assets';
+import GetUserAssets from '../../../src/service/User/get.assets';
 
 const { expect } = chai;
 
@@ -26,7 +26,7 @@ describe('Teste de Service - Testando os Assets do Usuário >>> ', () => {
         },
       ],
     };
-    const response = await GetAssets.getAssets(1);
+    const response = await GetUserAssets.getAssets(1);
 
     expect(response).to.deep.equal(user1);
   });
@@ -37,7 +37,7 @@ describe('Teste de Service - Testando os Assets do Usuário >>> ', () => {
       name: 'Jorge Pedro',
       Assets: [],
     };
-    const response = await GetAssets.getAssets(2);
+    const response = await GetUserAssets.getAssets(2);
 
     expect(response).to.deep.equal(user2);
   });

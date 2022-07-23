@@ -9,7 +9,7 @@ import investimentRoute from './routes/route.investiment';
 const port = process.env.APP_PORT || 3002;
 
 express.use('/client', clientRoute);
-express.use('/asset', assetsRoute);
+express.use('/ativos', assetsRoute);
 express.use('/investimentos', investimentRoute);
 
 express.use(Error);

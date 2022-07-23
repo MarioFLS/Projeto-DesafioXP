@@ -6,7 +6,7 @@ import { restoreDatabase } from '../../helpers/comand';
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { Usertoken } from '../../../src/interface/interface.user';
-import GetAssets from '../../../src/service/User/get.assets';
+import GetUserAssets from '../../../src/service/User/get.assets';
 import ClientAssets from '../../../src/controllers/Client/controllers.get.assets';
 
 const { expect } = chai;
@@ -39,7 +39,7 @@ describe('Teste de Controllers - Testando Pegar os ativos do Cliente', () => {
     res.status = Sinon.stub().returns(res);
     res.json = Sinon.stub().resolves();
 
-    Sinon.stub(GetAssets, 'getAssets').resolves(result);
+    Sinon.stub(GetUserAssets, 'getAssets').resolves(result);
   });
 
   afterAll(async () => {

@@ -2,7 +2,7 @@ import chai from 'chai';
 import shell from 'shelljs';
 import { restoreDatabase } from '../../helpers/comand';
 import InvestimentSale from '../../../src/service/Investment/sale.user.assets';
-import GetAssets from '../../../src/service/User/get.assets';
+import GetUserAssets from '../../../src/service/User/get.assets';
 import { StatusCodes } from 'http-status-codes';
 
 const { expect } = chai;
@@ -36,13 +36,13 @@ describe('Teste de Service - Testando a venda de Ativos >>> ', () => {
   });
 
   it('Se é possivel vender os ativos do usuário', async () => {
-    const user = await GetAssets.getAssets(1);
+    const user = await GetUserAssets.getAssets(1);
     expect(user).to.deep.equal(userTest);
     expect(user.Assets).to.be.length(2);
 
     await InvestimentSale.saleAssets(1, 1, 2);
 
-    const sale = await GetAssets.getAssets(1);
+    const sale = await GetUserAssets.getAssets(1);
     expect(sale.Assets).to.be.length(1);
   });
 

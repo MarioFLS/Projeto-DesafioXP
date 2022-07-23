@@ -4,7 +4,7 @@ import userAssets from '../../models/UserAssets';
 import { IAssetsEntry, IUserAsset } from '../../interface/interface.user.assets';
 import HelpAssets from '../../helpers/search.asset';
 
-class GetAssets {
+class GetUserAssets {
   static async getAssets(param:number): Promise<IUserAsset | IError | any> {
     const result = await User.findOne({
       where: { id: param },
@@ -32,4 +32,4 @@ class GetAssets {
   }
 }
 
-export default GetAssets;
+export default GetUserAssets;
