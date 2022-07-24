@@ -57,7 +57,7 @@ A Aplicação Permite:
 
 ## Crie o Banco
 
-:warning: **IMPORTANTE!**
+## :warning: **IMPORTANTE!**
 **A senha do Banco é password**
 
 ```javascript
@@ -73,7 +73,8 @@ A Aplicação Permite:
 O Banco é iniciado usando o comando `npm run restore` no terminal!
 </details>
 
-  <br />
+
+  
 ## :warning: Atenção :warning:
 
 **VOCÊ PRECISA INICIAR TIRAR O `exemple`, DO `.env.exemple`, SEM ELE A APLICAÇÃO NÃO FUNCIONA, ELA POSSUI A SENHA USANDA PARA FAZER OS TOKENS.**
