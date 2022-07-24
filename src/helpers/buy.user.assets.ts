@@ -26,7 +26,7 @@ class HelpBuyUserAsset {
     const newAsset = {
       userId: this._userId,
       assetId: this._assetId,
-      amount: result,
+      price: result,
       quantity,
     };
     return this._userAsset.create(newAsset);
@@ -45,8 +45,8 @@ class HelpBuyUserAsset {
     const asset = await HelpUserAssets.getUserAssets(this._userId, this._assetId);
     if (!asset) return this.createUserAsset(quantityToBuy);
     const { quantity } = asset?.toJSON() as { quantity:number};
-    const amount = await new HelpAssets().findAsset(this._assetId);
-    const { price } = amount.toJSON();
+    const quantityAsset = await new HelpAssets().findAsset(this._assetId);
+    const { price } = quantityAsset.toJSON();
     const log = Date.now();
     await UserLog.create({
       userId: this._userId,
@@ -54,7 +54,7 @@ class HelpBuyUserAsset {
       type: 'compra',
       log,
       quantity: quantityToBuy,
-      amount: price * quantityToBuy,
+      price: price * quantityToBuy,
     });
     return this.updateUserAsset(quantityToBuy, quantity);
   }

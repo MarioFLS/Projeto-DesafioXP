@@ -20,12 +20,12 @@ const result = {
     {
       id: 1,
       quantity: 2,
-      amount: 161.16,
+      price: 161.16,
     },
     {
       id: 2,
       quantity: 2,
-      amount: 5.78,
+      price: 5.78,
     },
   ],
 };

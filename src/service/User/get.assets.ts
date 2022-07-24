@@ -24,7 +24,7 @@ class GetUserAssets {
         id: asset.assetId,
         name,
         quantity: asset.quantity,
-        amount: price * asset.quantity,
+        price: price * asset.quantity,
       };
     }));
 

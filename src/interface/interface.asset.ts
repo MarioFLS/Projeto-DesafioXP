@@ -1,6 +1,6 @@
 export interface IAsset {
   id: number;
   name: string;
-  amount: number;
+  quantity: number;
   price: number;
 }

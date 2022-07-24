@@ -16,13 +16,13 @@ describe('Teste de Service - Testando a venda de Ativos >>> ', () => {
         id: 1,
         name: 'AAPL',
         quantity: 2,
-        amount: 161.16,
+        price: 161.16,
       },
       {
         id: 2,
         name: "MGLU3",
         quantity: 2,
-        amount: 5.78,
+        price: 5.78,
       },
     ],
   };

@@ -7,7 +7,7 @@ class UserHistory {
 
     const result = await logs.map(async (log) => {
       const {
-        assetId, type, quantity, amount,
+        assetId, type, quantity, price,
       } = log.toJSON();
       const asset = await new HelpAssets().findAsset(assetId);
       const { name } = asset.toJSON();
@@ -15,7 +15,7 @@ class UserHistory {
         type,
         name,
         quantity,
-        amount,
+        price,
       };
     });
     return Promise.all(result);

@@ -16,22 +16,22 @@ class HelpSaleUserAssets {
     this._userId = userId;
     this._assetId = assetId;
   }
-  async updateUserAsset(soldAmount:number) {
+  async updateUserAsset(soldquantity:number) {
     const asset = await HelpUserAssets.getUserAssets(this._userId, this._assetId);
     const { quantity } = asset.toJSON();
-    const value = await new GetAssets().saleAsset(this._assetId, soldAmount);
+    const value = await new GetAssets().saleAsset(this._assetId, soldquantity);
     const balance = await new HelpBalance(this._userId, Number(value)).deposit();
     await Wallet.update({ balance }, { where: { user_id: this._userId } });
-    const amount = await new HelpAssets().findAsset(this._assetId);
-    const { price } = amount.toJSON();
+    const quantityAsset = await new HelpAssets().findAsset(this._assetId);
+    const { price } = quantityAsset.toJSON();
     const log = Date.now();
     await UserLog.create({
       userId: this._userId,
       assetId: this._assetId,
       type: 'venda',
       log,
-      quantity: soldAmount,
-      amount: price * soldAmount,
+      quantity: soldquantity,
+      price: price * soldquantity,
     });
     return quantity;
   }

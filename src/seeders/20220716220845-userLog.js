@@ -9,7 +9,7 @@ module.exports = {
         type: 'venda',
         log: Sequelize.fn('now'),
         quantity: 2,
-        amount: 85.69 * 2,
+        price: 85.69 * 2,
       },
       {
         id: 2,
@@ -18,7 +18,7 @@ module.exports = {
         type: 'venda',
         log: Sequelize.fn('now'),
         quantity: 2,
-        amount: 2.22 * 2,
+        price: 2.22 * 2,
       },
       {
         id: 3,
@@ -27,7 +27,7 @@ module.exports = {
         type: 'venda',
         log: Sequelize.fn('now'),
         quantity: 2,
-        amount: 28.96 * 2,
+        price: 28.96 * 2,
       },
       {
         id: 4,
@@ -36,7 +36,7 @@ module.exports = {
         type: 'venda',
         log: Sequelize.fn('now'),
         quantity: 7,
-        amount: 3.00 * 7,
+        price: 3.00 * 7,
       },
       ],
 

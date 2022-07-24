@@ -16,7 +16,7 @@ describe('Teste de Service - Testando rota para pegar todos ativos ou pelo seu i
         'id',
         'name',
         'company',
-        'amount',
+        'quantity',
         'price'
       );
     })
@@ -28,7 +28,7 @@ describe('Teste de Service - Testando rota para pegar todos ativos ou pelo seu i
     const response = await new GetAssets().assetId(1);
 
     expect(response).to.deep.equal({
-      amount: 653,
+      quantity: 653,
       company: 'Apple',
       id: 1,
       name: 'AAPL',

@@ -1,4 +1,5 @@
 import {
+  DECIMAL,
   Model, STRING, DATE, INTEGER,
 } from 'sequelize';
 import db from '.';
@@ -13,7 +14,7 @@ UserLog.init(
     type: { type: STRING, allowNull: false },
     log: { type: DATE, allowNull: false },
     quantity: { type: INTEGER, allowNull: false },
-    amount: { type: INTEGER, allowNull: false },
+    price: { type: DECIMAL, allowNull: false },
   },
   {
     sequelize: db,

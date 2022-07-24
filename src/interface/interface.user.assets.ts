@@ -1,8 +1,9 @@
 import { IUser } from './interface.user';
 
-export interface IAssetsEntry {assetId:number,
-  amount:number,
+export interface IAssetsEntry {
+  assetId:number,
   quantity:number,
+  price:number,
   name: string
 }
 

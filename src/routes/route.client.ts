@@ -210,7 +210,7 @@ clienteRoute.get('/ativos', TokenValidate, ClientAssets.getAssets);
  *                        quantity:
  *                          type: integer
  *                          example: 2
- *                        amount:
+ *                        price:
  *                          type: decimal
  *                          example: 5.78
  */
@@ -250,7 +250,7 @@ clienteRoute.get('/log', TokenValidate, ClientHistory.history);
  *                        quantity:
  *                          type: integer
  *                          example: 2
- *                        amount:
+ *                        price:
  *                          type: decimal
  *                          example: 5.78
  */
