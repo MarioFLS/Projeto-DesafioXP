@@ -19,7 +19,7 @@ class ClientDeposit {
 
     const { error } = balance as IError;
     if (error) { return next(balance); }
-    return res.status(StatusCodes.OK).json({ id, name, saldo: balance });
+    return res.status(StatusCodes.OK).json({ id, name, balance });
   }
 }
 

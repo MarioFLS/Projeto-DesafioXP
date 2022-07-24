@@ -12,10 +12,10 @@ class UserHistory {
       const asset = await new HelpAssets().findAsset(assetId);
       const { name } = asset.toJSON();
       return {
-        tipo: type,
-        nome: name,
-        quantidade: quantity,
-        valor: amount,
+        type,
+        name,
+        quantity,
+        amount,
       };
     });
     return Promise.all(result);

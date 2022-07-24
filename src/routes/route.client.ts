@@ -15,14 +15,245 @@ import ClientHistory from '../controllers/Client/controllers.get.client.history'
 
 const clienteRoute = express.Router();
 
-clienteRoute.delete('/delete', TokenValidate, DeleteClient.delete);
-clienteRoute.post('/create', validateNewUser, CreateClient.create);
-clienteRoute.put('/update', TokenValidate, ValidateUpdate, ClientUpdate.update);
 clienteRoute.post('/login', validateLogin, ClientLogin.login);
 
+/**
+ * @swagger
+ *  tags:
+ *      name: client
+ *      description: Endpoints do Ciente
+ */
+
+/**
+ * @swagger
+ *  /client/login:
+ *    post:
+ *      tags: [client]
+ *      description: Retorna um Token que remete ao seu usuário
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  email:
+ *                    type: string
+ *                    example: pedroJorge@gmail.com
+ *                  password:
+ *                    type: string
+ *                    example: 123456
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  token:
+ *                    type: string
+ *                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpUZXh0byIsImlhdCI6MTUxN
+ */
+
+clienteRoute.post('/create', validateNewUser, CreateClient.create);
+/**
+ * @swagger
+ *  /client/create:
+ *    post:
+ *      tags: [client]
+ *      description: Retorna um Token que remete ao seu novo usuário
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  name:
+ *                    type: string
+ *                    example: NewUser
+ *                  email:
+ *                    type: string
+ *                    example: novoEmail@email.com
+ *                  password:
+ *                    type: string
+ *                    example: senhaSupersegura
+ *                  saldo:
+ *                    type: integer
+ *                    example: 2500
+ *      responses:
+ *        201:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  token:
+ *                    type: string
+ *                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpUZXh0byIsImlhdCI6MTUxN
+ */
+
+clienteRoute.put('/update', TokenValidate, ValidateUpdate, ClientUpdate.update);
+/**
+ * @swagger
+ *  /client/update:
+ *    put:
+ *      tags: [client]
+ *      description: Retorna um Token que remete ao seu usuário atualizado - Você pode atualizar seu nome de usuário.
+ *      security:
+ *        - bearerAuth: []
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  name:
+ *                    type: string
+ *                    example: UserAtualizado
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  token:
+ *                    type: string
+ *                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpUZXh0byIsImlhdCI6MTUxN
+ */
+
+clienteRoute.delete('/delete', TokenValidate, DeleteClient.delete);
+/**
+ * @swagger
+ *  /client/delete:
+ *    delete:
+ *      tags: [client]
+ *      description: Essa chamada não retorna nada. Mas o usuário será deletado
+ *      security:
+ *        - bearerAuth: []
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  password:
+ *                    type: string
+ *                    example: 123456
+ *      responses:
+ *        204:
+ */
+
 clienteRoute.get('/conta', TokenValidate, ClientBalance.getBalance);
+/**
+ * @swagger
+ *  /client/conta:
+ *    get:
+ *      tags: [client]
+ *      description: Retorna os dados da carteira do cliente.
+ *      security:
+ *        - bearerAuth: []
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  name:
+ *                    type: string
+ *                    example: Pedro Jorge
+ *                  token:
+ *                    type: decimal
+ *                    example: 250.00
+ */
+
 clienteRoute.get('/ativos', TokenValidate, ClientAssets.getAssets);
+/**
+ * @swagger
+ *  /client/ativos:
+ *    get:
+ *      tags: [client]
+ *      description: Retorna os ativos do usuário.
+ *      security:
+ *        - bearerAuth: []
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  name:
+ *                    type: string
+ *                    example: Pedro Jorge
+ *                  assets:
+ *                    type: array
+ *                    items:
+ *                      type: object
+ *                      properties:
+ *                        id:
+ *                          type: integer
+ *                          example: 1
+ *                        name:
+ *                          type: string
+ *                          example: AAPL
+ *                        quantity:
+ *                          type: integer
+ *                          example: 2
+ *                        amount:
+ *                          type: decimal
+ *                          example: 5.78
+ */
 clienteRoute.get('/log', TokenValidate, ClientHistory.history);
+/**
+ * @swagger
+ *  /client/log:
+ *    get:
+ *      tags: [client]
+ *      description: Retorna o histórico do usuário.
+ *      security:
+ *        - bearerAuth: []
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  name:
+ *                    type: string
+ *                    example: Pedro Jorge
+ *                  assets:
+ *                    type: array
+ *                    items:
+ *                      type: object
+ *                      properties:
+ *                        type:
+ *                          type: string
+ *                          example: venda
+ *                        name:
+ *                          type: string
+ *                          example: AAPL
+ *                        quantity:
+ *                          type: integer
+ *                          example: 2
+ *                        amount:
+ *                          type: decimal
+ *                          example: 5.78
+ */
 
 clienteRoute.post(
   '/conta/deposito',
@@ -30,11 +261,77 @@ clienteRoute.post(
   validateBalance,
   ClientDeposit.setBalance,
 );
+/**
+ * @swagger
+ *  /conta/deposito:
+ *    post:
+ *      tags: [client]
+ *      description: Retorna o valor depositado
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  valor:
+ *                    type: decimal
+ *                    example: 500
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  name:
+ *                    type: string
+ *                    example: Pedro Jorge
+ *                  balance:
+ *                    type: integer
+ *                    example: 750
+ */
 clienteRoute.post(
   '/conta/saque',
   TokenValidate,
   validateBalance,
   ClientDeposit.setBalance,
 );
+/**
+ * @swagger
+ *  /conta/saque:
+ *    post:
+ *      tags: [client]
+ *      description: Retorna o valor sacado
+ *      requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  valor:
+ *                    type: decimal
+ *                    example: 500
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  name:
+ *                    type: string
+ *                    example: Pedro Jorge
+ *                  balance:
+ *                    type: integer
+ *                    example: 250
+ */
 
 export default clienteRoute;
