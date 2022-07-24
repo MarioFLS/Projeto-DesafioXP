@@ -69,6 +69,8 @@ A Aplicação Permite:
     SECRET_PASSWORD=senhaMuitoSecreta
 ```
 
+#### Comando para subir o Banco
+O Banco é iniciado usando o comando `npm run restore` no terminal!
 </details>
 
 ## :warning: Atenção :warning:
@@ -82,14 +84,20 @@ A Aplicação Permite:
 
   <br />
 
-## Iniciar a aplicação
+## Iniciando a aplicação
 
 #### Utilize o comando abaixo para iniciar a aplicação
 `npm start`
 Como dito antes, ele irá transpilar o código e iniciar o uso. Não esqueça se for sair dele use `CTRL + C` ou equivalente. Se não a porta ainda será ocupada.
 Você pode restart o container e resolverá esse problema.
 
+#### Dentro do Container e com a aplicação iniciada, inicie o banco com o comando:
+`npm run restore`
+E pronto! O Banco estará pronto para ser usado!
+
+Rodando os testes o banco também será iniciado!
  <br />
+
 
 ## DOCUMENTAÇÂO
 
@@ -107,4 +115,8 @@ Você pode restart o container e resolverá esse problema.
 
 ### :warning: Os testes precisam da aplicação no ar! :warning:
 Estando a aplicação no ar, dentro do container rode `npm test`. Espere um pouco, eles podem demorar. E você terá os testes.
-Eles sobem a derrubam a aplicação, você perderá o que foi feito
+Eles sobem a derrubam a aplicação, você perderá o que foi feito!
+
+### PEÇA AJUDA
+Havendo algum problema. Entre em contato comigo, poderei auxiliar a resolver os problemas!
+Isso também vale para dúvidas de funcionamento!
