@@ -20,7 +20,7 @@ clienteRoute.post('/login', validateLogin, ClientLogin.login);
 /**
  * @swagger
  *  tags:
- *      name: client
+ *      name: Client
  *      description: Endpoints do Ciente
  */
 
@@ -28,7 +28,7 @@ clienteRoute.post('/login', validateLogin, ClientLogin.login);
  * @swagger
  *  /client/login:
  *    post:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna um Token que remete ao seu usuário
  *      requestBody:
  *          required: true
@@ -60,7 +60,7 @@ clienteRoute.post('/create', validateNewUser, CreateClient.create);
  * @swagger
  *  /client/create:
  *    post:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna um Token que remete ao seu novo usuário
  *      requestBody:
  *          required: true
@@ -98,7 +98,7 @@ clienteRoute.put('/update', TokenValidate, ValidateUpdate, ClientUpdate.update);
  * @swagger
  *  /client/update:
  *    put:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna um Token que remete ao seu usuário atualizado - Você pode atualizar seu nome de usuário.
  *      security:
  *        - bearerAuth: []
@@ -129,7 +129,7 @@ clienteRoute.delete('/delete', TokenValidate, DeleteClient.delete);
  * @swagger
  *  /client/delete:
  *    delete:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Essa chamada não retorna nada. Mas o usuário será deletado
  *      security:
  *        - bearerAuth: []
@@ -152,7 +152,7 @@ clienteRoute.get('/conta', TokenValidate, ClientBalance.getBalance);
  * @swagger
  *  /client/conta:
  *    get:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna os dados da carteira do cliente.
  *      security:
  *        - bearerAuth: []
@@ -179,7 +179,7 @@ clienteRoute.get('/ativos', TokenValidate, ClientAssets.getAssets);
  * @swagger
  *  /client/ativos:
  *    get:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna os ativos do usuário.
  *      security:
  *        - bearerAuth: []
@@ -219,7 +219,7 @@ clienteRoute.get('/log', TokenValidate, ClientHistory.history);
  * @swagger
  *  /client/log:
  *    get:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna o histórico do usuário.
  *      security:
  *        - bearerAuth: []
@@ -265,7 +265,7 @@ clienteRoute.post(
  * @swagger
  *  /conta/deposito:
  *    post:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna o valor depositado
  *      requestBody:
  *          required: true
@@ -304,7 +304,7 @@ clienteRoute.post(
  * @swagger
  *  /conta/saque:
  *    post:
- *      tags: [client]
+ *      tags: [Client]
  *      description: Retorna o valor sacado
  *      requestBody:
  *          required: true
