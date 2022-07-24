@@ -10,6 +10,11 @@ class TokenValidate {
   static async tokenValidate(req: Request, res: Response, next: NextFunction):
   Promise<Response | void> {
     const { authorization } = req.headers;
+    let tokenUser = authorization?.trim() as string;
+    if (authorization?.includes('Bearer')) {
+      tokenUser = authorization?.split('Bearer')[1].trim();
+    }
+
     const message = 'Esse token está inválido, não pertece a nenhum usuario';
 
     if (!authorization) {
@@ -21,10 +26,9 @@ class TokenValidate {
     }
 
     try {
-      const token = jwt.verify(authorization, secret) as
+      const token = jwt.verify(tokenUser, secret) as
       {id:number, email:string, name:string};
       const verifyUser = await new HelpUserClass(token.email, token.name).checkUser();
-
       if (!verifyUser) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message });
       }
