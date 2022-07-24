@@ -11,7 +11,7 @@ class DeleteClient {
     const user = await deleteUser.delete(email, password);
     const { error } = user as IError;
     if (error) return next(user);
-    return res.status(StatusCodes.NO_CONTENT);
+    return res.status(StatusCodes.NO_CONTENT).json({ message: 'Usuário Deletado' });
   }
 }
 
