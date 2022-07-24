@@ -3,7 +3,7 @@
 ## Descrição
 Esse Projeto Busca Simular uma API de Investimentos - Feito para o Desafio Tecnico da XP
  
-Essa Aplicação Permite:
+A Aplicação Permite:
 
 -  Ter uma experiência de gerenciar suas ações(ativos), tanto comprando quanto vendedo;
 -  E poder usar gerênciar seu usuário como melhor desejar. Fazendo depositos ou saques, vendo os ativos que foi comprado e mais!
@@ -19,7 +19,7 @@ Essa Aplicação Permite:
 <details>
   <summary><strong>🐳 Usando Docker</strong></summary><br />
  
-  > Rode os serviços `node` e `db` com o comando `docker-compose up -d`.
+  > Rode os serviços `node` e `mysql` com o comando `docker-compose up -d`.
   - Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`), ou adapte, caso queria fazer uso da aplicação em containers;
   - Esses serviços irão inicializar um container chamado `projeto-xp`;
   - A partir daqui você pode rodar o container `projeto-xp` via CLI ou abri-lo no VS Code.
@@ -33,6 +33,9 @@ Essa Aplicação Permite:
   ### :warning: Atenção :warning:
   - É de suma importância que você desabilite o MYSQL no seu computador antes de rodar a aplicação. Pois eles usaram a mesma porta.
   No Windows você pode fazer pelos *serviços*, parando o MYSQL por lá
+  
+  ### :warning: **IMPORTANTE!**
+  - Não mude as portas, isso pode fazer com que você não consiga conectar no banco!
 </details>
 
 <details>
@@ -86,3 +89,28 @@ require('dotenv').config(); // não se esqueça de configurar suas variáveis de
 `npm start`
 Como dito antes, ele irá transpilar o código e iniciar o uso. Não esqueça se for sair dele use `CTRL + C` ou equivalente. Se não a porta ainda será ocupada.
 Você pode restart o container e resolverá esse problema.
+
+ <br />
+
+<details>
+  <summary><strong>DOCUMENTAÇÂO</strong></summary><br />
+
+## A documentação está no caminho /docs
+
+ - Após iniciado a Aplicação utlize a rota `/docs`:
+ ### Exemplo
+ 
+ Sua aplicação estando rodando localmente ele provalvemente irá rodar na `http://localhost:3000`
+ Então use o seguinte caminho `http://localhost:3000/docs`
+
+</details>
+
+<details>
+  <summary><strong>TESTES</strong></summary><br />
+
+## Testes devem ser rodados dentro do Container!
+
+## :warning: Os testes precisam da aplicação no ar! :warning:
+Estando a aplicação no ar, dentro do container rode `npm test`. Espere um pouco, eles podem demorar. E você terá os testes.
+Eles sobem a derrubam a aplicação, você perderá o que foi feito
+</details>
