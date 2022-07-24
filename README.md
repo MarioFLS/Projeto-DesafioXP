@@ -20,7 +20,7 @@ A Aplicação Permite:
   <summary><strong>🐳 Usando Docker</strong></summary><br />
  
   > Rode os serviços `node` e `mysql` com o comando `docker-compose up -d`.
-  - Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`), ou adapte, caso queria fazer uso da aplicação em containers;
+  - Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`), a porta pode ser mudada, mas não é aconselhado que se faça. Isto é falado mais a baixo;
   - Esses serviços irão inicializar um container chamado `projeto-xp`;
   - A partir daqui você pode rodar o container `projeto-xp` via CLI ou abri-lo no VS Code.
 
@@ -73,6 +73,7 @@ A Aplicação Permite:
 O Banco é iniciado usando o comando `npm run restore` no terminal!
 </details>
 
+  <br />
 ## :warning: Atenção :warning:
 
 **VOCÊ PRECISA INICIAR TIRAR O `exemple`, DO `.env.exemple`, SEM ELE A APLICAÇÃO NÃO FUNCIONA, ELA POSSUI A SENHA USANDA PARA FAZER OS TOKENS.**
@@ -96,8 +97,7 @@ Você pode restart o container e resolverá esse problema.
 E pronto! O Banco estará pronto para ser usado!
 
 Rodando os testes o banco também será iniciado!
- <br />
-
+ 
 
 ## DOCUMENTAÇÂO
 
@@ -108,6 +108,8 @@ Rodando os testes o banco também será iniciado!
  
  Sua aplicação estando rodando localmente ele provalvemente irá rodar na `http://localhost:3000`
  Então use o seguinte caminho `http://localhost:3000/docs`
+
+
 
 ## TESTES
 
