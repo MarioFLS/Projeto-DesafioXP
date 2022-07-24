@@ -5,7 +5,7 @@ Esse Projeto Busca Simular uma API de Investimentos - Feito para o Desafio Tecni
  
 A Aplicação Permite:
 
--  Ter uma experiência de gerenciar suas ações(ativos), tanto comprando quanto vendedo;
+-  Ter uma experiência de gerenciar suas ações(ativos), tanto comprando quanto vendendo;
 -  E poder usar gerênciar seu usuário como melhor desejar. Fazendo depositos ou saques, vendo os ativos que foi comprado e mais!
 
 ## Tecnologias Usadas
@@ -31,10 +31,10 @@ A Aplicação Permite:
   <br />
   
   ### :warning: Atenção :warning:
-  - É de suma importância que você desabilite o MYSQL no seu computador antes de rodar a aplicação. Pois eles usaram a mesma porta.
+  - É de suma importância que você *desabilite* o MYSQL no seu computador antes de rodar a aplicação. Pois eles usaram a mesma porta.
   No Windows você pode fazer pelos *serviços*, parando o MYSQL por lá
   
-  ### :warning: **IMPORTANTE!**
+  ### :warning: **IMPORTANTE!** :warning:
   - Não mude as portas, isso pode fazer com que você não consiga conectar no banco!
 </details>
 
@@ -61,13 +61,12 @@ A Aplicação Permite:
 **A senha do Banco é password**
 
 ```javascript
-require('dotenv').config(); // não se esqueça de configurar suas variáveis de ambiente aqui na configuração
+#Não se esqueça de configurar suas variáveis de ambiente aqui na configuração
 
     DB_USER=root
     DB_PASSWORD=password
     DB_HOST=localhost
     SECRET_PASSWORD=senhaMuitoSecreta
-});
 ```
 
 </details>
@@ -92,25 +91,20 @@ Você pode restart o container e resolverá esse problema.
 
  <br />
 
-<details>
-  <summary><strong>DOCUMENTAÇÂO</strong></summary><br />
+## DOCUMENTAÇÂO
 
-## A documentação está no caminho /docs
+### A documentação está no caminho /docs
 
  - Após iniciado a Aplicação utlize a rota `/docs`:
- ### Exemplo
+ #### Exemplo
  
  Sua aplicação estando rodando localmente ele provalvemente irá rodar na `http://localhost:3000`
  Então use o seguinte caminho `http://localhost:3000/docs`
 
-</details>
+## TESTES
 
-<details>
-  <summary><strong>TESTES</strong></summary><br />
+### Testes devem ser rodados dentro do Container!
 
-## Testes devem ser rodados dentro do Container!
-
-## :warning: Os testes precisam da aplicação no ar! :warning:
+### :warning: Os testes precisam da aplicação no ar! :warning:
 Estando a aplicação no ar, dentro do container rode `npm test`. Espere um pouco, eles podem demorar. E você terá os testes.
 Eles sobem a derrubam a aplicação, você perderá o que foi feito
-</details>
