@@ -30,6 +30,6 @@ describe('Teste de Controllers - Testado Deposito e Saque do Cliente', () => {
     await ClientDeposit.setBalance(tokenDecode, req, res, next);
 
     expect(res.status).to.have.been.calledWith(StatusCodes.OK);
-    expect(res.json).to.have.been.calledWith({...tokenDecode,  saldo: 2700 });
+    expect(res.json).to.have.been.calledWith({...tokenDecode,  balance: 2700 });
   });
 });

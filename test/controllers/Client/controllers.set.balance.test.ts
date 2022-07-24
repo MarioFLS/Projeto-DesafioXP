@@ -1,7 +1,7 @@
 import Sinon from 'sinon';
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import GetBalance from '../../../src/service/User/get.balance';
 import ClientBalance from '../../../src/controllers/Client/controllers.get.balance';
@@ -16,6 +16,7 @@ const tokenDecode = { id: 1, name: 'fakeUser' } as Usertoken;
 describe('Teste de Controllers - Pegar a Carteira do Cliente', () => {
   const req = {} as Request;
   const res = {} as Response;
+  const next = Sinon.stub().returns({ error: {} }) as NextFunction;
 
   beforeEach(() => {
     res.status = Sinon.stub().returns(res);
@@ -25,7 +26,7 @@ describe('Teste de Controllers - Pegar a Carteira do Cliente', () => {
   });
 
   it('Testando Sucesso no Login', async () => {
-    await ClientBalance.getBalance(tokenDecode, req, res);
+    await ClientBalance.getBalance(tokenDecode, req, res, next);
 
     expect(res.status).to.have.been.calledWith(StatusCodes.OK);
     expect(res.json).to.have.been.calledWith(fakeWallet);
