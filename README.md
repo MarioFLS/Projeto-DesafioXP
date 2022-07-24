@@ -112,14 +112,14 @@ Rodando os testes o banco também será iniciado!
 
 
 
-## TESTES
+# TESTES
 
-### Testes devem ser rodados dentro do Container!
+## Testes devem ser rodados dentro do Container!
 
-### :warning: Os testes precisam da aplicação no ar! :warning:
+## :warning: Os testes precisam da aplicação no ar! :warning:
 Estando a aplicação no ar, dentro do container rode `npm test`. Espere um pouco, eles podem demorar. E você terá os testes.
 Eles sobem a derrubam a aplicação, você perderá o que foi feito!
 
-### PEÇA AJUDA
+## Estou aqui para Ajudar!
 Havendo algum problema. Entre em contato comigo, poderei auxiliar a resolver os problemas!
 Isso também vale para dúvidas de funcionamento!
