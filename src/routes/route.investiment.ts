@@ -20,6 +20,8 @@ investimentRoute.post('/comprar', TokenValidate, ValidateInvestiment, Investimen
  *    post:
  *      tags: [Investimento]
  *      description: Retorna o sucesso da compra do ativo
+ *      security:
+ *        - bearerAuth: []
  *      requestBody:
  *          required: true
  *          content:
@@ -55,7 +57,9 @@ investimentRoute.post(
  *  /investimentos/vender:
  *    post:
  *      tags: [Investimento]
- *      description: Retorna o sucesso da compra do ativo
+ *      description: Retorna o sucesso ma venda do ativo
+ *      security:
+ *        - bearerAuth: []
  *      requestBody:
  *          required: true
  *          content:

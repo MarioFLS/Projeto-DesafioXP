@@ -263,10 +263,12 @@ clienteRoute.post(
 );
 /**
  * @swagger
- *  /conta/deposito:
+ *  /client/conta/deposito:
  *    post:
  *      tags: [Client]
  *      description: Retorna o valor depositado
+ *      security:
+ *        - bearerAuth: []
  *      requestBody:
  *          required: true
  *          content:
@@ -302,10 +304,12 @@ clienteRoute.post(
 );
 /**
  * @swagger
- *  /conta/saque:
+ *  /client/conta/saque:
  *    post:
  *      tags: [Client]
  *      description: Retorna o valor sacado
+ *      security:
+ *        - bearerAuth: []
  *      requestBody:
  *          required: true
  *          content:
