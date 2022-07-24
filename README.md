@@ -91,7 +91,7 @@ O Banco é iniciado usando o comando `npm run restore` no terminal!
 #### Utilize o comando abaixo para iniciar a aplicação
 `npm start`
 Como dito antes, ele irá transpilar o código e iniciar o uso. Não esqueça se for sair dele use `CTRL + C` ou equivalente. Se não a porta ainda será ocupada.
-Você pode restart o container e resolverá esse problema.
+Você pode reiniciar ou derrubar o container, isso resolverá esse problema.
 
 #### Dentro do Container e com a aplicação iniciada, inicie o banco com o comando:
 `npm run restore`
