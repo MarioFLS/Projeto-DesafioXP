@@ -1,7 +1,7 @@
-# Projeto DesafioXP!
+# Projeto Investimentos!
 
 ## Descrição
-Esse Projeto Busca Simular uma API de Investimentos - Feito para o Desafio Tecnico da XP
+Esse Projeto Busca Simular uma API de Investimentos
  
 A Aplicação Permite:
 
