@@ -10,7 +10,7 @@ A Aplicação Permite:
 
 ## Tecnologias Usadas
 
-> Desenvolvida utilizando: JavaScript, TypeScript, NodeJS, expres, express-async-errors, Docker, Sequelize, Jest, Chai, Sinon, Swagger, Mysql.
+> Desenvolvida utilizando: JavaScript, TypeScript, NodeJS, express, express-async-errors, Docker, Sequelize, Jest, Chai, Sinon, Swagger, Mysql.
 
 # Como Utilizar
 
